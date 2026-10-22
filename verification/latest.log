@@ -1,0 +1,30 @@
+External manuscript files not bundled: main.tex, appendix.tex
+Their hashes are not checked; Lean proof and declaration audits still run.
+Build completed successfully (4229 jobs).
+Axiom audit passed: 4702 declarations, including 3938 theorems; 4699 use no cited axiom.
+  ConditionedStableLaws.Cited.castro_qProcess_stationary_ergodic: 2 dependent declarations
+Main result Public A–F: 6 mapped declarations, no cited axiom.
+Main result Public components: 17 mapped declarations, no cited axiom.
+Main result A: 4 mapped declarations, no cited axiom.
+Main result B: 27 mapped declarations, no cited axiom.
+Main result C: 7 mapped declarations, no cited axiom.
+Main result D: 5 mapped declarations, no cited axiom.
+Main result E: 1 mapped declarations, no cited axiom.
+Main result F(i): 1 mapped declarations, no cited axiom.
+Main result F(ii): 5 mapped declarations, no cited axiom.
+Main result F(iii): 5 mapped declarations, no cited axiom.
+Remark remark.birkhoff_indexing: 10 mapped declarations, no cited axiom.
+Remark rmk:no-kill: 5 mapped declarations, no cited axiom.
+Remark rmk:admissible: 19 mapped declarations, no cited axiom.
+Remark remark.independent_limiting_counts: 12 mapped declarations, no cited axiom.
+Remark remark.continuous_multiplier_extension: 14 mapped declarations, no cited axiom.
+Remark remark.poisson_target_start: 4 mapped declarations, no cited axiom.
+Remark remark.mu_nu_integrability: 8 mapped declarations, no cited axiom.
+Remark remark.canonical_q_process: 5 mapped declarations, no cited axiom.
+Remark remark.random_measure_semiring: 4 mapped declarations, no cited axiom.
+Coverage declaration check passed: 323 declarations.
+Manuscript coverage (independent of build success): {'defined': 7, 'proved': 51, 'excluded': 5, 'partial': 1, 'proved_modulo_cited': 1}
+Remarks proved without cited axioms: 9/9.
+1 items rely on cited axioms: thm:Qprocess
+FULL MANUSCRIPT COVERAGE IS INCOMPLETE (examples excluded).
+Verification receipt written: .tools/verification.json

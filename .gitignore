@@ -1,0 +1,16 @@
+.lake/
+.tools/
+dist/
+__pycache__/
+*.pyc
+
+# Editor and generated manuscript/package artifacts
+.DS_Store
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
+*.zip
+*.patch
+*.bak

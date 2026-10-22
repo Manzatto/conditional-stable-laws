@@ -1,0 +1,1672 @@
+{
+  "schemaVersion": 1,
+  "scope": "All active theorem, lemma, proposition, corollary, definition, hypothesis, remark and step environments in main.tex and its included appendix.tex; percent-commented environments excluded. The five examples are excluded at the user's explicit request and retained only as inventory entries. Additional unnumbered setup obligations are listed in docs/Development.md.",
+  "sourceFiles": [
+    {
+      "path": "main.tex",
+      "sha256": "02e95e900beaccc30d2cfcc3fc83af9bae43317766b42d2553f99582f860dd0b",
+      "lineCount": 3113
+    },
+    {
+      "path": "appendix.tex",
+      "sha256": "a8365c9a3912b631edfb1efb0aa26440008feecbb950f98a4681052f4e662040",
+      "lineCount": 833
+    }
+  ],
+  "sourceAmendments": [
+    {
+      "id": "remark.independent_limiting_counts",
+      "path": "main.tex",
+      "sourceLines": [
+        460,
+        462
+      ],
+      "revisedMathematicalWording": "The limiting counts are independent, while the finite-n counts need not be independent.",
+      "scope": "This approved wording is covered by the Lean proofs. The recorded hashes identify the unchanged local base snapshot, not an independently supplied revised manuscript."
+    }
+  ],
+  "countsByKind": {
+    "definition": 6,
+    "remark": 9,
+    "hypothesis": 1,
+    "theorem": 15,
+    "proposition": 1,
+    "example": 5,
+    "lemma": 7,
+    "step": 21
+  },
+  "results": [
+    {
+      "id": "definition.quasi_stationary_and_quasi_ergodic",
+      "kind": "definition",
+      "source": {
+        "path": "main.tex",
+        "startLine": 188,
+        "endLine": 201
+      },
+      "labels": [
+        "eq:quasi-ergodiclimit5"
+      ],
+      "status": "defined",
+      "leanDeclarations": [
+        "ConditionedStableLaws.IsQuasiStationary",
+        "ConditionedStableLaws.isQuasiStationary_iff_all_marginals",
+        "ConditionedStableLaws.CanonicalChain.conditionedMeasure_marginal_comap",
+        "ConditionedStableLaws.CanonicalChain.IsQuasiErgodic"
+      ],
+      "coverageNote": "Both definitions use actual canonical conditioned laws. Quasi-stationarity is equivalent to invariance of every normalized killed marginal; quasi-ergodicity quantifies over all bounded measurable observables with the source almost-everywhere starting-state convention.",
+      "citedAxioms": []
+    },
+    {
+      "id": "remark.birkhoff_indexing",
+      "kind": "remark",
+      "source": {
+        "path": "main.tex",
+        "startLine": 202,
+        "endLine": 210
+      },
+      "labels": [],
+      "status": "proved",
+      "leanDeclarations": [
+        "ConditionedStableLaws.birkhoffSum_endpoint_difference",
+        "ConditionedStableLaws.normalized_endpoint_bound",
+        "ConditionedStableLaws.bounded_average_succ_difference",
+        "ConditionedStableLaws.CanonicalChain.bounded_conditioned_indexing",
+        "ConditionedStableLaws.CanonicalChain.normalized_endpoint_probability_of_H",
+        "ConditionedStableLaws.CanonicalChain.normalized_reindexing_probability_of_H",
+        "ConditionedStableLaws.CanonicalChain.shifted_limit_of_H",
+        "ConditionedStableLaws.CanonicalChain.inclusive_sum_limit_of_H",
+        "ConditionedStableLaws.CanonicalChain.conditioned_endpoint_mean_nonneg_of_H",
+        "ConditionedStableLaws.CanonicalChain.lln_L1_reindexed"
+      ],
+      "coverageNote": "Both bounded conditional-average estimates are proved, with constants 2B/n and 2B/(n+1). Under H, every finite-valued measurable observable has a negligible terminal value on any diverging scale, derived from the spectral estimate. Both shifted and inclusive centered distributional limits follow from the original limit without assuming endpoint negligibility. The conditional-mean endpoint vanishes under the original L1(mu) and vanishing-on-Z assumptions, and the mean LLN is proved directly for shifted/n and inclusive/(n+1) averages.",
+      "citedAxioms": []
+    },
+    {
+      "id": "hyp:H",
+      "kind": "hypothesis",
+      "source": {
+        "path": "main.tex",
+        "startLine": 214,
+        "endLine": 248
+      },
+      "labels": [
+        "hyp:H",
+        "it:hypH-i",
+        "it:hypH-ii",
+        "it:hypH-iii"
+      ],
+      "status": "defined",
+      "leanDeclarations": [
+        "ConditionedStableLaws.StandingHypothesis.HypothesisH"
+      ],
+      "coverageNote": "Standing assumptions only, using actual killed kernels and their powers. No spectral conclusions are assumed in this definition.",
+      "citedAxioms": []
+    },
+    {
+      "id": "thm:Castro",
+      "kind": "theorem",
+      "source": {
+        "path": "main.tex",
+        "startLine": 252,
+        "endLine": 261
+      },
+      "labels": [
+        "thm:Castro"
+      ],
+      "status": "proved",
+      "leanDeclarations": [
+        "ConditionedStableLaws.StandingHypothesis.HypothesisH.eigenfunction_liveSet_eq",
+        "ConditionedStableLaws.StandingHypothesis.HypothesisH.survivingSet_subset_eigenmeasure_support",
+        "ConditionedStableLaws.StandingHypothesis.HypothesisH.exists_normalized_eigenData",
+        "ConditionedStableLaws.StandingHypothesis.HypothesisH.exists_quasiStationary_density",
+        "ConditionedStableLaws.StandingHypothesis.HypothesisH.exists_stationary_Doob_probability",
+        "ConditionedStableLaws.StandingHypothesis.HypothesisH.quasiStationary_rates_unique",
+        "ConditionedStableLaws.StandingHypothesis.HypothesisH.exists_unique_quasiStationary",
+        "ConditionedStableLaws.CanonicalChain.exists_pointwise_quasiErgodic_eigenData",
+        "ConditionedStableLaws.CanonicalChain.exists_pointwise_quasiErgodic_probability",
+        "ConditionedStableLaws.CanonicalChain.exists_unique_quasiErgodic"
+      ],
+      "coverageNote": "H yields the unique quasi-stationary probability and unique quasi-ergodic probability, actual reference density, continuous normalized nonnegative eigenfunction positive exactly on the surviving set, and the stated support inclusion. The quasi-ergodic limit holds for every surviving initial state; uniqueness also derives that any candidate cannot charge finite-extinction states.",
+      "citedAxioms": []
+    },
+    {
+      "id": "rmk:no-kill",
+      "kind": "remark",
+      "source": {
+        "path": "main.tex",
+        "startLine": 263,
+        "endLine": 266
+      },
+      "labels": [
+        "rmk:no-kill"
+      ],
+      "status": "proved",
+      "leanDeclarations": [
+        "ConditionedStableLaws.eigenvalue_eq_one_of_conservative",
+        "ConditionedStableLaws.StandingHypothesis.SurvivalGapData.weight_eq_one_of_conservative",
+        "ConditionedStableLaws.StandingHypothesis.SurvivalGapData.weightedMeasure_eq_of_conservative",
+        "ConditionedStableLaws.CanonicalChain.conditionedMeasure_eq_of_conservative",
+        "ConditionedStableLaws.CanonicalChain.ae_always_live_of_conservative"
+      ],
+      "coverageNote": "For a conservative kernel, survival conditioning is exactly the original canonical path law and paths always remain live almost surely. A probability eigenmeasure has rate one; the proved gap-to-survival limit forces the normalized eigenfunction to be one, so the weighted measure equals the eigenmeasure. Spectral existence from H retains its separate status.",
+      "citedAxioms": []
+    },
+    {
+      "id": "def:reg",
+      "kind": "definition",
+      "source": {
+        "path": "main.tex",
+        "startLine": 330,
+        "endLine": 344
+      },
+      "labels": [
+        "def:reg",
+        "eq:lebesgue"
+      ],
+      "status": "defined",
+      "leanDeclarations": [
+        "ConditionedStableLaws.IsRegularAt",
+        "ConditionedStableLaws.IsAdmissibleAt",
+        "ConditionedStableLaws.IsRegularPoint",
+        "ConditionedStableLaws.IsAdmissiblePoint"
+      ],
+      "coverageNote": "Local regularity and admissibility encoded both with a specified positive constant and with an existentially quantified constant.",
+      "citedAxioms": []
+    },
+    {
+      "id": "rmk:admissible",
+      "kind": "remark",
+      "source": {
+        "path": "main.tex",
+        "startLine": 346,
+        "endLine": 350
+      },
+      "labels": [
+        "rmk:admissible"
+      ],
+      "status": "proved",
+      "leanDeclarations": [
+        "ConditionedStableLaws.isAdmissibleAt_of_continuousAt",
+        "ConditionedStableLaws.isAdmissiblePoint_of_continuousAt",
+        "ConditionedStableLaws.ae_tendsto_closedBall_abs_sub_average",
+        "ConditionedStableLaws.ae_tendsto_ball_abs_sub_average_of_absolutelyContinuous",
+        "ConditionedStableLaws.ae_tendsto_ball_abs_sub_average_off_set",
+        "ConditionedStableLaws.isRegularAt_addHaar",
+        "ConditionedStableLaws.isRegularAt_restrict_addHaar",
+        "ConditionedStableLaws.ae_isAdmissiblePoint_restrict_addHaar",
+        "ConditionedStableLaws.IsRegularAt.withDensity_of_continuousAt",
+        "ConditionedStableLaws.isRegularAt_coordinateVolumeDensity",
+        "ConditionedStableLaws.isRegularAt_of_sharp_ball_comparison",
+        "ConditionedStableLaws.HasRiemannianVolumeDensity.isRegularAt",
+        "ConditionedStableLaws.HasRiemannianVolumeDensity.isLocallyFiniteMeasure",
+        "ConditionedStableLaws.HasRiemannianVolumeDensity.isRegularAt_restrict",
+        "ConditionedStableLaws.HasRiemannianVolumeDensity.isAdmissibleAt_restrict_of_continuousAt",
+        "ConditionedStableLaws.HasRiemannianVolumeDensity.ae_tendsto_ball_abs_sub_average_restrict",
+        "ConditionedStableLaws.HasRiemannianVolumeDensity.ae_tendsto_ball_abs_sub_average_off_set",
+        "ConditionedStableLaws.HasRiemannianVolumeDensity.ae_isAdmissiblePoint_restrict",
+        "ConditionedStableLaws.ae_tendsto_ball_abs_sub_average_restrict_of_regular"
+      ],
+      "citedAxioms": [],
+      "coverageNote": "All three clauses are proved for Riemannian volume specified by its standard local coordinate identity sqrt(det g), where g is the actual metric tensor in constructed tangent coordinates. Sharp distance comparison, positive continuous coordinate density, ambient-dimensional ball regularity and local finiteness are derived, not assumed. Every interior point of a restricted domain is regular. Open-ball absolute-error differentiation holds almost everywhere on every measurable domain, including off Z; the ambient manifold need not be compact or have finite volume. Continuous positive densities at regular points are admissible. The global construction of a canonical volume measure is not asserted."
+    },
+    {
+      "id": "thm:tail-asymptotics",
+      "kind": "proposition",
+      "source": {
+        "path": "main.tex",
+        "startLine": 369,
+        "endLine": 378
+      },
+      "labels": [
+        "thm:tail-asymptotics",
+        "eq:tailbn"
+      ],
+      "status": "proved",
+      "leanDeclarations": [
+        "ConditionedStableLaws.tail_asymptotics",
+        "ConditionedStableLaws.tail_asymptotics_withDensity"
+      ],
+      "coverageNote": "Both conclusions proved from explicit admissibility, density, integrability and continuous-weight data. Construction of those data from H belongs to thm:Castro and thm:spectralgap and is not yet proved.",
+      "citedAxioms": []
+    },
+    {
+      "id": "def:Mp",
+      "kind": "definition",
+      "source": {
+        "path": "main.tex",
+        "startLine": 408,
+        "endLine": 421
+      },
+      "labels": [
+        "def:Mp"
+      ],
+      "status": "defined",
+      "leanDeclarations": [
+        "ConditionedStableLaws.ExtremeState",
+        "ConditionedStableLaws.IsPointMeasure",
+        "ConditionedStableLaws.LocallyFinitePointMeasure",
+        "ConditionedStableLaws.LocallyFinitePointMeasure.tendsto_iff_test_integrals",
+        "ConditionedStableLaws.LocallyFinitePointMeasure.testIntegrals_injective",
+        "ConditionedStableLaws.LocallyFinitePointMeasure.isEmbedding_testIntegrals",
+        "ConditionedStableLaws.IsPointMeasure.exists_nat_of_apply_lt_top",
+        "ConditionedStableLaws.LocallyFinitePointMeasure.measurable_measure_interval",
+        "ConditionedStableLaws.LocallyFinitePointMeasure.tendsto_vague_of_nonatom_interval_counts"
+      ],
+      "coverageNote": "Positive ENNReal state space (including infinity), countable unit-Dirac representation, finiteness on positive tails, and the vague topology defined by all real compactly supported continuous test functions. The correspondence with ordinary local finiteness is also proved. The test integrals determine the actual measure, the vague topology is Hausdorff, and finite Borel evaluations are natural-number counts. Interval evaluations and integer counts are Borel measurable. Convergence of interval masses at continuity endpoints implies actual vague convergence.",
+      "citedAxioms": []
+    },
+    {
+      "id": "definition.random_point_and_poisson_measure",
+      "kind": "definition",
+      "source": {
+        "path": "main.tex",
+        "startLine": 422,
+        "endLine": 437
+      },
+      "labels": [],
+      "status": "defined",
+      "leanDeclarations": [
+        "ConditionedStableLaws.RandomPointMeasure",
+        "ConditionedStableLaws.IsPoissonRandomMeasure",
+        "ConditionedStableLaws.IsPoissonRandomMeasure.count_probability",
+        "ConditionedStableLaws.FinitePoissonCloud.isPoissonRandomMeasure",
+        "ConditionedStableLaws.FinitePoissonCloud.exists_for_finite_intensity",
+        "ConditionedStableLaws.exists_poisson_random_measure"
+      ],
+      "coverageNote": "Actual vague-measurable random point measures, Poisson count laws, and disjoint independence. Existence is proved for every intensity finite on positive tails, including infinite total intensity: independent finite marked clouds on an explicit annular partition are superposed on a genuine countable product probability space. Local finiteness, all finite-intensity-region count laws, and disjoint independence are derived. Finite-cloud characteristic and Laplace functionals are also proved.",
+      "citedAxioms": []
+    },
+    {
+      "id": "thm:ppp",
+      "kind": "theorem",
+      "source": {
+        "path": "main.tex",
+        "startLine": 448,
+        "endLine": 457
+      },
+      "labels": [
+        "thm:ppp"
+      ],
+      "status": "proved",
+      "leanDeclarations": [
+        "ConditionedStableLaws.path_empirical_poisson_process_convergence_of_trimmed_estimates",
+        "ConditionedStableLaws.CanonicalChain.poisson_point_process_of_admissibility",
+        "ConditionedStableLaws.CanonicalChain.poisson_interval_counts_of_admissibility",
+        "ConditionedStableLaws.power_poisson_limit_isPoissonRandomMeasure",
+        "ConditionedStableLaws.TheoremA",
+        "ConditionedStableLaws.TheoremA.pointProcess",
+        "ConditionedStableLaws.TheoremA.intervalCounts",
+        "ConditionedStableLaws.TheoremA.poissonLaw"
+      ],
+      "coverageNote": "Actual canonical survival-conditioned empirical point measures converge in the actual vague topology to the constructed power-intensity PRM. Arbitrary finite disjoint interval count vectors converge jointly; the limit has the source Poisson counts and independence. All tail, target, mixing, cluster, configuration, and endpoint estimates are derived from H and exact local admissibility. Normalized continuous eigen-data and density are those produced by the proved spectral theorem; no limit estimates are hypotheses.",
+      "citedAxioms": []
+    },
+    {
+      "id": "remark.independent_limiting_counts",
+      "kind": "remark",
+      "source": {
+        "path": "main.tex",
+        "startLine": 460,
+        "endLine": 462
+      },
+      "labels": [],
+      "status": "proved",
+      "leanDeclarations": [
+        "ConditionedStableLaws.IsPoissonRandomMeasure.independent_countOn",
+        "ConditionedStableLaws.power_poisson_limit_isPoissonRandomMeasure",
+        "ConditionedStableLaws.not_indepFun_of_disjoint_positive_values",
+        "ConditionedStableLaws.not_independent_single_observation_counts",
+        "ConditionedStableLaws.CanonicalChain.initial_functions_independent",
+        "ConditionedStableLaws.CanonicalChain.initial_visit_counts_independent",
+        "ConditionedStableLaws.CanonicalChain.two_visit_counts_not_independent",
+        "ConditionedStableLaws.FiniteCountExample.refreshChain_hypothesisH",
+        "ConditionedStableLaws.FiniteCountExample.refresh_left_eigenmeasure",
+        "ConditionedStableLaws.FiniteCountExample.refresh_hypothesisH_and_singular_two_counts_dependent",
+        "ConditionedStableLaws.FiniteCountExample.threeStateHypothesisH",
+        "ConditionedStableLaws.FiniteCountExample.threeState_counts_dependent"
+      ],
+      "citedAxioms": [],
+      "coverageNote": "The natural-valued limiting Poisson counts on disjoint finite-intensity sets are independent. The revised finite-count claim is supported by a constructed refresh chain satisfying every clause of H. From the paper's local regularity assumption, the singular-observable example proves admissibility with density one and constructs disjoint finite positive-endpoint intervals whose actual N2 counts are dependent for any positive normalization. No target-probability or dependence assumption is added. The reference probability is proved to be the stationary eigenmeasure. An unconditional uniform three-state H-chain gives another concrete empirical-count witness. Initial-only counts are also proved independent. Thus finite counts need not be independent; a universal dependence assertion would be false."
+    },
+    {
+      "id": "thm:main-stable-laws",
+      "kind": "theorem",
+      "source": {
+        "path": "main.tex",
+        "startLine": 468,
+        "endLine": 504
+      },
+      "labels": [
+        "thm:main-stable-laws",
+        "it:stab-law-i",
+        "it:stab-law-ii",
+        "it:stab-law-iii",
+        "it:stab-law-iv"
+      ],
+      "status": "proved",
+      "leanDeclarations": [
+        "ConditionedStableLaws.StableLawSmall.stable_law_small",
+        "ConditionedStableLaws.StableLawCompensated.stable_law_one",
+        "ConditionedStableLaws.StableLawCompensated.stable_law_mid",
+        "ConditionedStableLaws.StableLawCompensated.stable_law_of_compensation",
+        "ConditionedStableLaws.CompensatedPoissonLimits.cut_unitCompensated_tendstoInDistribution",
+        "ConditionedStableLaws.CompensatedPoissonLimits.cut_fullyCompensated_tendstoInDistribution",
+        "ConditionedStableLaws.CompensationAsymptotics.scaled_band_mean",
+        "ConditionedStableLaws.CompensationAsymptotics.scaled_tail_mean",
+        "ConditionedStableLaws.AnnularPoissonClouds.positiveIntegral_laplace",
+        "ConditionedStableLaws.AnnularPoissonClouds.total_mark_finite",
+        "ConditionedStableLaws.powerIntensity_small_moment",
+        "ConditionedStableLaws.powerIntensity_large_moment",
+        "ConditionedStableLaws.AnnularPoissonClouds.compensatedIntegral_characteristic",
+        "ConditionedStableLaws.AnnularPoissonClouds.compensatedSmallJumps_second_moment",
+        "ConditionedStableLaws.AnnularPoissonClouds.compensatedSmallJumps_tendstoInMeasure",
+        "ConditionedStableLaws.AnnularPoissonClouds.unitCompensatedStable_characteristic_real",
+        "ConditionedStableLaws.AnnularPoissonClouds.fullyCompensatedStable_characteristic_real",
+        "ConditionedStableLaws.AnnularPoissonClouds.unitCutoff_eq_setIntegrals",
+        "ConditionedStableLaws.AnnularPoissonClouds.unitCutoff_tendstoInMeasure",
+        "ConditionedStableLaws.AnnularPoissonClouds.fullCutoff_eq_setIntegrals",
+        "ConditionedStableLaws.AnnularPoissonClouds.fullCutoff_tendstoInMeasure",
+        "ConditionedStableLaws.StableIdentification.positiveIntegral_isStable",
+        "ConditionedStableLaws.StableIdentification.positiveIntegral_ae_eq",
+        "ConditionedStableLaws.StableIdentification.unitCompensatedStable_isStable",
+        "ConditionedStableLaws.StableIdentification.fullyCompensatedStable_isStable",
+        "ConditionedStableLaws.GaussianBoundary.stable_law_boundary",
+        "ConditionedStableLaws.StableScaling.isStableLaw_of_powerLevyExponent",
+        "ConditionedStableLaws.TheoremB",
+        "ConditionedStableLaws.TheoremB.part_i",
+        "ConditionedStableLaws.TheoremB.part_ii",
+        "ConditionedStableLaws.TheoremB.part_iii",
+        "ConditionedStableLaws.TheoremB.part_iv",
+        "ConditionedStableLaws.TheoremB.laplace_i",
+        "ConditionedStableLaws.TheoremB.characteristic_ii",
+        "ConditionedStableLaws.TheoremB.characteristic_iii",
+        "ConditionedStableLaws.TheoremB.stable_i",
+        "ConditionedStableLaws.TheoremB.stable_ii",
+        "ConditionedStableLaws.TheoremB.stable_iii"
+      ],
+      "coverageNote": "Part (i) (0<alpha<1) is proved without cited axioms: B_n^{-1} sum f_beta(X_j) -> Z_alpha with Laplace transform exp(-Gamma(1-alpha)t^alpha). Part (ii) (alpha=1) is proved: B_n^{-1}(sum f_beta(X_j) - A_n) -> Z_1 = unitCompensatedStable 1, A_n = n nu(f_beta 1_{f_beta<=B_n}), with the characteristic function exp(int (e^{ity}-1-ity1_{(0,1]}(y)) y^{-2} dy) (unitCompensatedStable_characteristic_real). Part (iii) (1<alpha<2) is proved: f_beta in L^1(nu) and B_n^{-1}(sum f_beta(X_j) - n nu(f_beta)) -> Z_alpha = fullyCompensatedStable alpha, characteristic function fullyCompensatedStable_characteristic_real. (ii)-(iii) follow the manuscript: middle jumps via the PPP and convergence of the centring constants (layer cake), compensated small jumps via lem:conditional-second-moment, Chebyshev, and the proved midpoint interpolation estimate, and large jumps via the PPP count on (R,inf]. The three non-Gaussian limits are identified as alpha-stable laws without cited axioms by StableScaling.isStableLaw_of_powerLevyExponent: change variables in the power-density integral, move the unit cutoff by a finite drift integral, and derive the exact independent-sum scaling identity for every n >= 1. This includes alpha=1 without requiring an explicit logarithmic evaluation of the drift. Part (iv) (alpha=2) is proved (GaussianBoundary.stable_law_boundary): f_beta in L^1(nu) and B_n^{-1}(sum f_beta(X_j) - n nu(f_beta)) -> N(0,1) with B_n = sqrt(C n log n), via the conditional triangular CLT applied to the centred truncations at u_n = sqrt(C n)(log n)^{1/4}, the conditioned large-observation estimate, and Slutsky's theorem.",
+      "citedAxioms": []
+    },
+    {
+      "id": "remark.continuous_multiplier_extension",
+      "kind": "remark",
+      "source": {
+        "path": "main.tex",
+        "startLine": 506,
+        "endLine": 513
+      },
+      "labels": [],
+      "status": "proved",
+      "leanDeclarations": [
+        "ConditionedStableLaws.ContinuousMultiplier.stable_law_small_signed",
+        "ConditionedStableLaws.ContinuousMultiplier.residual_bound",
+        "ConditionedStableLaws.MultiplierReflection.rescale_normalizer_tendsto",
+        "ConditionedStableLaws.MultiplierReflection.absTrunc_const_mul",
+        "ConditionedStableLaws.MultiplierReflection.gaussian_map_sign",
+        "ConditionedStableLaws.CanonicalChain.limit_setCenterValue",
+        "ConditionedStableLaws.integral_setCenterValue",
+        "ConditionedStableLaws.integral_absTrunc_setCenterValue",
+        "ConditionedStableLaws.ContinuousMultiplier.stable_law_mid_signed",
+        "ConditionedStableLaws.ContinuousMultiplier.stable_law_boundary_signed",
+        "ConditionedStableLaws.ContinuousMultiplier.absolute_center_residual_tendsto",
+        "ConditionedStableLaws.ContinuousMultiplier.powerScale_multiplierTailConstant",
+        "ConditionedStableLaws.ContinuousMultiplier.stable_law_one_signed",
+        "ConditionedStableLaws.ContinuousMultiplier.bScale_multiplierTailConstant"
+      ],
+      "citedAxioms": [],
+      "coverageNote": "All four continuous-multiplier regimes are proved from H and continuity of g, with the stated |g(x0)| normalization and arbitrary finite value at the center. At alpha=1 the actual absolute-truncation centering is proved via the residual shell estimate; for 1<alpha<=2 integrability and mean centering are proved. The stable limits are reflected when g(x0)<0 and the Gaussian law is unchanged. The transformed tail constant gives the prescribed power and Gaussian normalizations."
+    },
+    {
+      "id": "thm:conditional-clt-l2",
+      "kind": "theorem",
+      "source": {
+        "path": "main.tex",
+        "startLine": 524,
+        "endLine": 532
+      },
+      "labels": [
+        "thm:conditional-clt-l2"
+      ],
+      "status": "proved",
+      "leanDeclarations": [
+        "ConditionedStableLaws.L2Variance.conditional_clt_l2",
+        "ConditionedStableLaws.L2Variance.large_observation_tendsto_zero",
+        "ConditionedStableLaws.L2Variance.large_observation_sum_le",
+        "ConditionedStableLaws.L2Variance.truncation_negligible_of_large_observations",
+        "ConditionedStableLaws.L2Variance.summable_abs_correlation_l2",
+        "ConditionedStableLaws.L2Variance.asymptoticVariance_truncation_tendsto",
+        "ConditionedStableLaws.L2Variance.conditional_clt_l2_of_truncation_negligible",
+        "ConditionedStableLaws.TheoremC"
+      ],
+      "citedAxioms": [],
+      "coverageNote": "Proved for finite-valued measurable g in L^2(mu): the covariance series is absolutely summable (identified with the interpolated L^2 remainder operator), sigma_g^2 >= 0, and the normalized centred sums converge in law to N(0, sigma_g^2) under P_x(.|tau>n). Bounded truncations converge in L^2, their variances converge, and the bounded CLTs are assembled by the converging-together theorem. The double-truncation negligibility follows from the conditional second-moment estimate and the conditioned large-observation estimate, proved as in the manuscript: early one-time marginals via mixing after one kernel step with lem:uniform-small-targets, late marginals via mixing across the initial gap, leading terms O(n mu(|g|>eps sqrt n)) -> 0, and the j=0 term vanishing since g(x) is finite."
+    },
+    {
+      "id": "thm:conditional-exponential-concentration",
+      "kind": "theorem",
+      "source": {
+        "path": "main.tex",
+        "startLine": 537,
+        "endLine": 545
+      },
+      "labels": [
+        "thm:conditional-exponential-concentration",
+        "ref:conditional-exponential-concentration"
+      ],
+      "status": "proved",
+      "leanDeclarations": [
+        "ConditionedStableLaws.Concentration.conditional_exponential_concentration_sq",
+        "ConditionedStableLaws.Concentration.conditional_exponential_concentration",
+        "ConditionedStableLaws.Concentration.integral_conditioned_exp",
+        "ConditionedStableLaws.TwistedOperators.twisted_power_bound",
+        "ConditionedStableLaws.TwistedOperators.exp_smul_mulL",
+        "ConditionedStableLaws.TheoremD",
+        "ConditionedStableLaws.TheoremD.explicitRate"
+      ],
+      "citedAxioms": [],
+      "coverageNote": "Proved in the current manuscript form (Theorem D): for bounded measurable h there is a_h > 0 and, for every x in M\\Z, C_x > 0 with P_x(|n^{-1} sum h(X_j) - nu(h)| > eps | tau > n) <= C_x exp(-a_h eps^2 n) for all eps > 0, n >= 1 (conditional_exponential_concentration_sq). This follows from the proved rate min{t_h/4, eps^2/(16K_h)} (conditional_exponential_concentration), via Feynman-Kac and twisted operators on L^inf(rho); the leading eigenvalue comes from the proved rank-one perturbation theorem (stability_of_rank_one_gap), and |Lambda(t)-1| = O(t^2) is derived."
+    },
+    {
+      "id": "definition.shrinking_neighborhoods",
+      "kind": "definition",
+      "source": {
+        "path": "main.tex",
+        "startLine": 552,
+        "endLine": 556
+      },
+      "labels": [],
+      "status": "defined",
+      "leanDeclarations": [
+        "ConditionedStableLaws.ShrinkingNeighborhoods"
+      ],
+      "coverageNote": "Matches measurable sets containing the centre and eventually contained in every neighbourhood; no nesting or openness requirement is added.",
+      "citedAxioms": []
+    },
+    {
+      "id": "thm:conditional-poisson",
+      "kind": "theorem",
+      "source": {
+        "path": "main.tex",
+        "startLine": 560,
+        "endLine": 567
+      },
+      "labels": [
+        "thm:conditional-poisson"
+      ],
+      "status": "proved",
+      "leanDeclarations": [
+        "ConditionedStableLaws.CanonicalChain.conditional_poisson_shrinking_targets",
+        "ConditionedStableLaws.TheoremE"
+      ],
+      "coverageNote": "The genuine scalar visit count at times 0 through n-1 converges under the actual conditioned probability law to the Poisson law. H, shrinking neighborhoods, live center, distinct live initial state, and the prescribed visit-rate scaling suffice. Uniform smallness, eigenfunction lower bounds, all mixed configurations, endpoint removal, and scalar projection are proved internally. The result additionally allows rate zero.",
+      "citedAxioms": []
+    },
+    {
+      "id": "remark.poisson_target_start",
+      "kind": "remark",
+      "source": {
+        "path": "main.tex",
+        "startLine": 570,
+        "endLine": 581
+      },
+      "labels": [],
+      "status": "proved",
+      "leanDeclarations": [
+        "ConditionedStableLaws.CanonicalChain.visitTimes_eq_one_add_afterInitial",
+        "ConditionedStableLaws.CanonicalChain.independent_poisson_after_initial_of_H",
+        "ConditionedStableLaws.CanonicalChain.conditional_poisson_after_initial_shrinking_targets",
+        "ConditionedStableLaws.CanonicalChain.conditional_poisson_target_start"
+      ],
+      "coverageNote": "The positive-time visit count converges to Poisson under H, allowing the initial state in the target. Starting at the shrinking-neighborhood center contributes exactly one and gives the pushforward of Poisson by k \u21a6 1+k. The target center is independent of any singular-observable center.",
+      "citedAxioms": []
+    },
+    {
+      "id": "thm:refined-conditional-lln",
+      "kind": "theorem",
+      "source": {
+        "path": "main.tex",
+        "startLine": 588,
+        "endLine": 617
+      },
+      "labels": [
+        "thm:refined-conditional-lln",
+        "it:cond-lln-1",
+        "eq:conditional-lln-bounded-l1",
+        "it:cond-lln-2",
+        "it:cond-lln-3",
+        "ref:l1-conditional-probability"
+      ],
+      "status": "proved",
+      "leanDeclarations": [
+        "ConditionedStableLaws.RefinedLLN.lln_bounded",
+        "ConditionedStableLaws.RefinedLLN.lln_L1",
+        "ConditionedStableLaws.RefinedLLN.lln_probability",
+        "ConditionedStableLaws.TheoremF",
+        "ConditionedStableLaws.TheoremF.part_i",
+        "ConditionedStableLaws.TheoremF.part_ii",
+        "ConditionedStableLaws.TheoremF.part_iii"
+      ],
+      "citedAxioms": [],
+      "coverageNote": "All three parts are proved without cited axioms for the actual canonical chain and survival-conditioned laws. Part (i) uses exponential concentration; (ii) uses the Doob-kernel maximal/Cesaro argument and L1 truncation; (iii) uses an L1(nu) Q-process mean LLN, finite-history change of measure and uniformly integrable inverse endpoint weights. The original signature permits an arbitrary left eigenmeasure mu and is preserved via a canonical probability reference with the same weighted invariant measure."
+    },
+    {
+      "id": "remark.mu_nu_integrability",
+      "kind": "remark",
+      "source": {
+        "path": "main.tex",
+        "startLine": 625,
+        "endLine": 627
+      },
+      "labels": [],
+      "status": "proved",
+      "leanDeclarations": [
+        "ConditionedStableLaws.memLp_weighted_of_memLp",
+        "ConditionedStableLaws.memLp_weighted_iff",
+        "ConditionedStableLaws.eLpNorm_weighted_le",
+        "ConditionedStableLaws.eLpNorm_le_weighted",
+        "ConditionedStableLaws.integrability_reverse_inclusion_fails",
+        "ConditionedStableLaws.RefinedLLN.lln_L1",
+        "ConditionedStableLaws.RefinedLLN.lln_probability",
+        "ConditionedStableLaws.RefinedLLN.lln_L1_of_weight_bounded_below"
+      ],
+      "coverageNote": "The Lp inclusion, norm equivalence under a positive lower weight bound, and continuous vanishing-weight counterexample are proved. The conditional-mean LLN under L1(mu) and the probability LLN under L1(nu) are proved without cited axioms. A positive lower weight bound also gives the mean LLN from L1(nu). The manuscript explicitly leaves the general L1(nu) mean-LLN question open; that question is not asserted as a theorem.",
+      "citedAxioms": []
+    },
+    {
+      "id": "example.additive_torus_noise",
+      "kind": "example",
+      "source": {
+        "path": "main.tex",
+        "startLine": 668,
+        "endLine": 694
+      },
+      "labels": [],
+      "status": "excluded",
+      "coverageNote": "Excluded from formalization at the user's explicit request.",
+      "leanDeclarations": [],
+      "citedAxioms": []
+    },
+    {
+      "id": "example.riemannian_bounded_noise",
+      "kind": "example",
+      "source": {
+        "path": "main.tex",
+        "startLine": 695,
+        "endLine": 731
+      },
+      "labels": [],
+      "status": "excluded",
+      "coverageNote": "Excluded from formalization at the user's explicit request.",
+      "leanDeclarations": [],
+      "citedAxioms": []
+    },
+    {
+      "id": "example.gaussian_hard_killing",
+      "kind": "example",
+      "source": {
+        "path": "main.tex",
+        "startLine": 733,
+        "endLine": 762
+      },
+      "labels": [],
+      "status": "excluded",
+      "coverageNote": "Excluded from formalization at the user's explicit request.",
+      "leanDeclarations": [],
+      "citedAxioms": []
+    },
+    {
+      "id": "example.killed_elliptic_diffusion",
+      "kind": "example",
+      "source": {
+        "path": "main.tex",
+        "startLine": 764,
+        "endLine": 806
+      },
+      "labels": [],
+      "status": "excluded",
+      "coverageNote": "Excluded from formalization at the user's explicit request.",
+      "leanDeclarations": [],
+      "citedAxioms": []
+    },
+    {
+      "id": "example.cubic_bounded_noise",
+      "kind": "example",
+      "source": {
+        "path": "main.tex",
+        "startLine": 808,
+        "endLine": 821
+      },
+      "labels": [],
+      "status": "excluded",
+      "coverageNote": "Excluded from formalization at the user's explicit request.",
+      "leanDeclarations": [],
+      "citedAxioms": []
+    },
+    {
+      "id": "thm:spectralgap",
+      "kind": "theorem",
+      "source": {
+        "path": "main.tex",
+        "startLine": 860,
+        "endLine": 891
+      },
+      "labels": [
+        "thm:spectralgap",
+        "2.1",
+        "eq:op"
+      ],
+      "status": "proved",
+      "leanDeclarations": [
+        "ConditionedStableLaws.StandingHypothesis.HypothesisH.strong_feller",
+        "ConditionedStableLaws.StandingHypothesis.HypothesisH.transitionOperator_isCompact",
+        "ConditionedStableLaws.StandingHypothesis.HypothesisH.transitionOperator_nonneg",
+        "ConditionedStableLaws.SpectralAlgebra.spectral_decomposition_algebra",
+        "ConditionedStableLaws.StandingHypothesis.HypothesisH.transitionOperator_norm_le_one",
+        "ConditionedStableLaws.StandingHypothesis.HypothesisH.isOpen_survivingSet",
+        "ConditionedStableLaws.StandingHypothesis.HypothesisH.exists_finite_power_minorization",
+        "ConditionedStableLaws.StandingHypothesis.HypothesisH.exists_eigenData_of_approximate",
+        "ConditionedStableLaws.StandingHypothesis.HypothesisH.exists_positive_operator_growth_rate",
+        "ConditionedStableLaws.StandingHypothesis.HypothesisH.exists_positive_eigenpair_and_eigenmeasure",
+        "ConditionedStableLaws.StandingHypothesis.HypothesisH.exists_normalized_eigenData",
+        "ConditionedStableLaws.StandingHypothesis.HypothesisH.eigenmeasure_surviving_mass_pos",
+        "ConditionedStableLaws.StandingHypothesis.HypothesisH.exists_real_simple_eigenpair_no_jordan",
+        "ConditionedStableLaws.StandingHypothesis.HypothesisH.exists_eigenData_survivalGap",
+        "ConditionedStableLaws.StandingHypothesis.HypothesisH.transitionOperator_spectralRadius_eq",
+        "ConditionedStableLaws.StandingHypothesis.HypothesisH.exists_spectral_decomposition",
+        "ConditionedStableLaws.CanonicalChain.exists_pointwise_quasiErgodic_eigenData",
+        "ConditionedStableLaws.StandingHypothesis.HypothesisH.exists_quasiStationary_density"
+      ],
+      "coverageNote": "Every source clause is proved from H for the actual killed operator: compact positive linear strong-Feller operator; normalized density/eigenfunction at the actual spectral radius; exponential L-infinity gap; exact rank-one projection/remainder identities and power bounds; positivity exactly off Z; actual conditioned signed bounded Birkhoff limits from times 0 through n-1 at every surviving initial state. The separate L2 compactness/interpolation lemma is not part of this coverage claim.",
+      "citedAxioms": []
+    },
+    {
+      "id": "thm:compact-interpolation",
+      "kind": "theorem",
+      "source": {
+        "path": "main.tex",
+        "startLine": 895,
+        "endLine": 906
+      },
+      "labels": [
+        "thm:compact-interpolation"
+      ],
+      "status": "partial",
+      "leanDeclarations": [
+        "ConditionedStableLaws.LpCompactInterpolation.midpoint_compact_interpolation"
+      ],
+      "citedAxioms": [],
+      "coverageNote": "The exact finite-measure real L1-Linfinity midpoint instance used by the manuscript is proved without cited axioms: compatible bounded T1, T2 and Ttop, with compact Ttop, imply compact T2. Finite conditional expectations approximate the compact Linfinity image in operator norm and the proved midpoint norm estimate controls the L2 residual. The general theorem for arbitrary exponent pairs is not formalized, so the full source statement remains partial."
+    },
+    {
+      "id": "lem:l2-compactness",
+      "kind": "lemma",
+      "source": {
+        "path": "main.tex",
+        "startLine": 908,
+        "endLine": 916
+      },
+      "labels": [
+        "lem:l2-compactness",
+        "ref:l2-spectral-estimate"
+      ],
+      "status": "proved",
+      "leanDeclarations": [
+        "ConditionedStableLaws.StandingHypothesis.HypothesisH.l2_compactness",
+        "ConditionedStableLaws.L2Compactness.linf_compact_gap",
+        "ConditionedStableLaws.L2Compactness.norm_R1_pow_le"
+      ],
+      "citedAxioms": [],
+      "coverageNote": "For normalized eigen-data from H, the actual normalized operator and remainder are compact on Linfinity(mu) and L2(mu); the remainder has geometric L2 operator-norm decay and all its positive powers are compact. All conclusions are proved without cited axioms. Compactness of the L2 remainder uses the proved finite-measure L1-Linfinity midpoint compact interpolation theorem, applied directly to the compatible kernel realizations. Compactness of the normalized operator follows from P=R+Pi. The geometric L2 decay uses the proved midpoint norm interpolation estimate."
+    },
+    {
+      "id": "lem:uniform-small-targets",
+      "kind": "lemma",
+      "source": {
+        "path": "main.tex",
+        "startLine": 961,
+        "endLine": 966
+      },
+      "labels": [
+        "lem:uniform-small-targets"
+      ],
+      "status": "proved",
+      "leanDeclarations": [
+        "ConditionedStableLaws.StandingHypothesis.HypothesisH.uniform_small_targets",
+        "ConditionedStableLaws.StandingHypothesis.HypothesisH.uniform_small_targets_of_eigenData",
+        "ConditionedStableLaws.kernel_restrict_absolutelyContinuous_weighted",
+        "ConditionedStableLaws.StandingHypothesis.HypothesisH.uniform_small_targets_lemma"
+      ],
+      "coverageNote": "Both compact-family small-target assertions are proved from H alone: the normalized eigen-data are produced by the spectral theorem (exists_normalized_eigenData), and the support and positive-set identifications are derived from H2.",
+      "citedAxioms": []
+    },
+    {
+      "id": "definition.q_process",
+      "kind": "definition",
+      "source": {
+        "path": "main.tex",
+        "startLine": 998,
+        "endLine": 1019
+      },
+      "labels": [],
+      "status": "defined",
+      "leanDeclarations": [
+        "ConditionedStableLaws.CanonicalChain.IsQProcess",
+        "ConditionedStableLaws.CanonicalChain.extendQ",
+        "ConditionedStableLaws.CanonicalChain.IsQProcess.unique",
+        "ConditionedStableLaws.CanonicalChain.doobQ",
+        "ConditionedStableLaws.StandingHypothesis.HypothesisH.exists_isQProcess"
+      ],
+      "citedAxioms": [],
+      "coverageNote": "IsQProcess S Q: probability measures on the canonical path space for x in S = M\\Z, every finite-history event has Q_x(A) = lim_t P_x(A | tau>t), the process stays in S, and the Markov property holds for a complete finite past with transitions Q^m(y,B) = Q_y[X_m in B]. Uniqueness (stated in the manuscript as immediate from the definition) is proved via projective limits, and under H the canonical Doob trajectory law is shown to be a Q-process."
+    },
+    {
+      "id": "thm:Qprocess",
+      "kind": "theorem",
+      "source": {
+        "path": "main.tex",
+        "startLine": 1022,
+        "endLine": 1040
+      },
+      "labels": [
+        "thm:Qprocess",
+        "it:Qproc-i",
+        "it:Qproc-ii",
+        "it:Qproc-iii"
+      ],
+      "status": "proved_modulo_cited",
+      "leanDeclarations": [
+        "ConditionedStableLaws.DoobTransform.EigenData.kernel",
+        "ConditionedStableLaws.DoobTransform.EigenData.kernel_pow_apply",
+        "ConditionedStableLaws.DoobTransform.EigenData.invariant_weightedMeasure",
+        "ConditionedStableLaws.DoobTransform.EigenData.isProbabilityMeasure_weightedMeasure",
+        "ConditionedStableLaws.CanonicalChain.doobPathMeasure",
+        "ConditionedStableLaws.CanonicalChain.doob_canonical_cylinder",
+        "ConditionedStableLaws.CanonicalChain.conditioned_cylinder_tendsto_doob_of_surviving",
+        "ConditionedStableLaws.CanonicalChain.exists_conditioned_cylinder_limit",
+        "ConditionedStableLaws.StandingHypothesis.HypothesisH.qProcess_stationary_ergodic",
+        "ConditionedStableLaws.StandingHypothesis.HypothesisH.exists_qProcess_stationary_ergodic"
+      ],
+      "coverageNote": "Items (i)-(ii) are proved from H. Item (iii): eta*mu is identified as a stationary probability by a proof; uniqueness and ergodicity of Q_nu come from the cited axiom (Castro et al. Prop. 2.6(iii)).",
+      "citedAxioms": [
+        "ConditionedStableLaws.Cited.castro_qProcess_stationary_ergodic"
+      ]
+    },
+    {
+      "id": "remark.canonical_q_process",
+      "kind": "remark",
+      "source": {
+        "path": "main.tex",
+        "startLine": 1044,
+        "endLine": 1052
+      },
+      "labels": [],
+      "status": "proved",
+      "leanDeclarations": [
+        "ConditionedStableLaws.CanonicalChain.exists_qProcess_never_escapes",
+        "ConditionedStableLaws.CanonicalChain.IsQProcess.ae_always_stays",
+        "ConditionedStableLaws.CanonicalChain.IsQProcess.always_stays_eq_one",
+        "ConditionedStableLaws.CanonicalChain.IsQProcess.survival_eq_one",
+        "ConditionedStableLaws.CanonicalChain.IsQProcess.escaping_marginal_eq_zero"
+      ],
+      "coverageNote": "The Q-process is constructed from H. Every finite survival event has probability one, every coordinate assigns zero mass to the escaping set, and the single event of staying in the surviving set forever has probability one. No stationary-ergodicity axiom is used.",
+      "citedAxioms": []
+    },
+    {
+      "id": "lem:mix",
+      "kind": "lemma",
+      "source": {
+        "path": "main.tex",
+        "startLine": 1066,
+        "endLine": 1080
+      },
+      "labels": [
+        "lem:mix",
+        "eq:problematic",
+        "eq:mixingallorders"
+      ],
+      "status": "proved",
+      "leanDeclarations": [
+        "ConditionedStableLaws.ConditionalMixing.conditional_operatorWord_mixing",
+        "ConditionedStableLaws.StandingHypothesis.HypothesisH.kernel_mixing",
+        "ConditionedStableLaws.CanonicalChain.conditioned_path_mixing",
+        "ConditionedStableLaws.CanonicalChain.conditioned_multitime_event_real",
+        "ConditionedStableLaws.MixingAllOrders.mixing_all_orders",
+        "ConditionedStableLaws.MixingAllOrders.nest_approx",
+        "ConditionedStableLaws.MixingAllOrders.integral_conditioned_observe",
+        "ConditionedStableLaws.MixingAllOrders.integral_conditioned_observe_last",
+        "ConditionedStableLaws.SecondMoment.exists_data0"
+      ],
+      "coverageNote": "Both assertions of the lemma are proved from H for bounded measurable observables of arbitrary sign, conditioned either at the last observation time or later, with gaps at least m and an explicit O_{x,k}(theta^m) error proportional to the product of the observation bounds. Nested killed-kernel integrals are compared with products of nu-means by induction, using the pointwise L^infty decay of centred normalized iterates and of normalized survival masses (SecondMoment.Data0, constructed from H without interpolation). The earlier nonnegative path-mixing corollaries remain.",
+      "citedAxioms": []
+    },
+    {
+      "id": "lem:cluster-mixing",
+      "kind": "lemma",
+      "source": {
+        "path": "main.tex",
+        "startLine": 1181,
+        "endLine": 1206
+      },
+      "labels": [
+        "lem:cluster-mixing"
+      ],
+      "status": "proved",
+      "leanDeclarations": [
+        "ConditionedStableLaws.ConditionalMixing.operatorWord_sub_norm_le",
+        "ConditionedStableLaws.ConditionalMixing.conditional_operatorWord_mixing",
+        "ConditionedStableLaws.CanonicalChain.conditioned_cluster_mixing",
+        "ConditionedStableLaws.CanonicalChain.conditioned_cluster_mixing_uniform",
+        "ConditionedStableLaws.CanonicalChain.integral_remove_initial_smoothing",
+        "ConditionedStableLaws.CanonicalChain.conditioned_cluster_mixing_of_H"
+      ],
+      "coverageNote": "Actual conditioned path blocks are regrouped, their leading factors identified with stationary Doob cluster expectations/probabilities, and a uniform error is proved including small gaps via crude probability bounds. Initial smoothing is removed by an exact time identity. The spectral gap is produced from H (conditioned_cluster_mixing_of_H), so no premise remains.",
+      "citedAxioms": []
+    },
+    {
+      "id": "thm:methodofmoments",
+      "kind": "theorem",
+      "source": {
+        "path": "main.tex",
+        "startLine": 1295,
+        "endLine": 1298
+      },
+      "labels": [
+        "thm:methodofmoments"
+      ],
+      "status": "proved",
+      "leanDeclarations": [
+        "ConditionedStableLaws.HasAllRealMoments",
+        "ConditionedStableLaws.MomentDeterminate",
+        "ConditionedStableLaws.method_of_moments",
+        "ConditionedStableLaws.method_of_moments_inDistribution"
+      ],
+      "coverageNote": "Full real-valued moment-determinate theorem, including random variables under varying laws. Tightness, continuous-observable moment transfer, Prokhorov subsequences, and identification of all subsequential limits are derived from the moment assumptions; they are not extra hypotheses.",
+      "citedAxioms": []
+    },
+    {
+      "id": "thm:cramerwold",
+      "kind": "theorem",
+      "source": {
+        "path": "main.tex",
+        "startLine": 1302,
+        "endLine": 1306
+      },
+      "labels": [
+        "thm:cramerwold"
+      ],
+      "status": "proved",
+      "leanDeclarations": [
+        "ConditionedStableLaws.cramerWold_coordinates",
+        "ConditionedStableLaws.cramerWold_varyingMeasures"
+      ],
+      "coverageNote": "Full finite-dimensional criterion from verified mathlib characteristic-function/L\u00e9vy theory, including changing underlying measures.",
+      "citedAxioms": []
+    },
+    {
+      "id": "thm:kallenberg-random-measures",
+      "kind": "theorem",
+      "source": {
+        "path": "main.tex",
+        "startLine": 1308,
+        "endLine": 1320
+      },
+      "labels": [
+        "thm:kallenberg-random-measures"
+      ],
+      "status": "proved",
+      "leanDeclarations": [
+        "ConditionedStableLaws.LocallyFinitePointMeasure.tendsto_vague_of_interval_counts",
+        "ConditionedStableLaws.LocallyFinitePointMeasure.tendsto_vague_of_nonatom_interval_counts",
+        "ConditionedStableLaws.randomPointMeasure_tendsto_of_all_joint_intervals",
+        "ConditionedStableLaws.IntervalRefinement.exists_count_refinement",
+        "ConditionedStableLaws.kallenberg_random_point_measures"
+      ],
+      "coverageNote": "Full random-law criterion for actual vague point measures: count measurability, deterministic vague criterion, countable count-cylinder topology and weak-law criterion, then finite disjoint interval refinement and continuous finite sums. Varying probability spaces are allowed. The manuscript boundary-atomlessness assumption is unnecessary for this implication and is omitted in the stronger proved theorem.",
+      "citedAxioms": []
+    },
+    {
+      "id": "remark.random_measure_semiring",
+      "kind": "remark",
+      "source": {
+        "path": "main.tex",
+        "startLine": 1322,
+        "endLine": 1326
+      },
+      "labels": [],
+      "status": "proved",
+      "leanDeclarations": [
+        "ConditionedStableLaws.dissectingExtremeIntervals_isSetSemiring",
+        "ConditionedStableLaws.dissectingExtremeIntervals_measurable",
+        "ConditionedStableLaws.dissectingExtremeIntervals_nhds",
+        "ConditionedStableLaws.kallenberg_random_point_measures"
+      ],
+      "citedAxioms": [],
+      "coverageNote": "The half-open intervals on (0,\u221e] are proved to form a measurable set semiring that dissects the topology. The random-measure convergence implication is proved directly in Lean, without using Kallenberg as an axiom."
+    },
+    {
+      "id": "step:ppp-1",
+      "kind": "step",
+      "source": {
+        "path": "main.tex",
+        "startLine": 1345,
+        "endLine": 1352
+      },
+      "labels": [
+        "step:ppp-1",
+        "it:ppp-1-i",
+        "it:ppp-1-ii",
+        "it:ppp-1-iii"
+      ],
+      "status": "proved",
+      "leanDeclarations": [
+        "ConditionedStableLaws.singularObservable_normalized_tail",
+        "ConditionedStableLaws.uniform_small_targets_of_kernel_density",
+        "ConditionedStableLaws.powerIntensity",
+        "ConditionedStableLaws.powerIntensity_Ioi",
+        "ConditionedStableLaws.powerIntensity_interval",
+        "ConditionedStableLaws.powerIntensity_isLocallyFinite",
+        "ConditionedStableLaws.normalized_interval_tendsto_powerIntensity",
+        "ConditionedStableLaws.StandingHypothesis.HypothesisH.singular_targets_uniform_small",
+        "ConditionedStableLaws.CanonicalChain.singular_target_chain_inputs",
+        "ConditionedStableLaws.CanonicalChain.admissible_weighted_tail",
+        "ConditionedStableLaws.CanonicalChain.singular_targets_weight_lower"
+      ],
+      "coverageNote": "Tail normalization, interval normalization to the power-law intensity, vanishing target masses, uniform kernel smallness and eta lower bounds on the shrinking targets are derived from H and exact local admissibility; these are the inputs used by the proved thm:ppp.",
+      "citedAxioms": []
+    },
+    {
+      "id": "step:ppp-2",
+      "kind": "step",
+      "source": {
+        "path": "main.tex",
+        "startLine": 1371,
+        "endLine": 1380
+      },
+      "labels": [
+        "step:ppp-2"
+      ],
+      "status": "proved",
+      "leanDeclarations": [
+        "ConditionedStableLaws.StandingHypothesis.HypothesisH.doob_short_return",
+        "ConditionedStableLaws.StandingHypothesis.HypothesisH.stationary_cluster_short_return_bound"
+      ],
+      "citedAxioms": [],
+      "coverageNote": "The Doob return bound Q^m(y,U) <= nu(U) + C theta^{m-1} sup_z P(z,U) for y in U (with an explicit constant from the spectral gap, the eta bounds and the one-step target bound) is proved and fed into the cluster estimates."
+    },
+    {
+      "id": "step:ppp-3",
+      "kind": "step",
+      "source": {
+        "path": "main.tex",
+        "startLine": 1409,
+        "endLine": 1422
+      },
+      "labels": [
+        "step:ppp-3",
+        "eq:limite",
+        "ref:truncated-counts"
+      ],
+      "status": "proved",
+      "leanDeclarations": [
+        "ConditionedStableLaws.CanonicalChain.conditioned_endpoint_sum_tendsto_zero",
+        "ConditionedStableLaws.CanonicalChain.conditioned_count_law_transfer_of_small_targets"
+      ],
+      "coverageNote": "The conditioned endpoint-hit sum tends to zero and the count law transfers from trimmed to full counts; the local target assumptions are discharged for the singular observable in the proof of thm:ppp.",
+      "citedAxioms": []
+    },
+    {
+      "id": "step:ppp-4",
+      "kind": "step",
+      "source": {
+        "path": "main.tex",
+        "startLine": 1461,
+        "endLine": 1471
+      },
+      "labels": [
+        "step:ppp-4"
+      ],
+      "status": "proved",
+      "leanDeclarations": [
+        "ConditionedStableLaws.prod_visit_descFactorial_eq_real",
+        "ConditionedStableLaws.descFactorial_card_eq_sum_injective",
+        "ConditionedStableLaws.integral_prod_visit_descFactorial_eq_sum",
+        "ConditionedStableLaws.CanonicalChain.sum_excluded_trimmed_mixed_eq"
+      ],
+      "coverageNote": "Exact factorial-moment identities and the decomposition of the trimmed mixed factorial moment into separated and excluded (close-pair/cluster) configurations are proved for the actual canonical path.",
+      "citedAxioms": []
+    },
+    {
+      "id": "step:ppp-5",
+      "kind": "step",
+      "source": {
+        "path": "main.tex",
+        "startLine": 1486,
+        "endLine": 1491
+      },
+      "labels": [
+        "step:ppp-5"
+      ],
+      "status": "proved",
+      "leanDeclarations": [
+        "ConditionedStableLaws.card_excludedConfigurations_le",
+        "ConditionedStableLaws.mixed_factorial_moment_tendsto",
+        "ConditionedStableLaws.scaled_geometric_logCutoff_tendsto_zero",
+        "ConditionedStableLaws.CanonicalChain.conditioned_ordered_separated_mixing",
+        "ConditionedStableLaws.CanonicalChain.conditioned_separated_trimmedWeight_mixing"
+      ],
+      "coverageNote": "Separated configurations factorize up to explicit mixing errors derived from H, and their sum converges to the product of the intensities, with logarithmic cutoff estimates.",
+      "citedAxioms": []
+    },
+    {
+      "id": "step:ppp-6",
+      "kind": "step",
+      "source": {
+        "path": "main.tex",
+        "startLine": 1534,
+        "endLine": 1540
+      },
+      "labels": [
+        "step:ppp-6"
+      ],
+      "status": "proved",
+      "leanDeclarations": [
+        "ConditionedStableLaws.CanonicalChain.conditioned_ordered_close_bound",
+        "ConditionedStableLaws.CanonicalChain.conditioned_excluded_sum_tendsto_zero",
+        "ConditionedStableLaws.StandingHypothesis.HypothesisH.sum_stationary_clusters_le"
+      ],
+      "citedAxioms": [],
+      "coverageNote": "The excluded (cluster) contribution S_n^cl tends to zero, using the short-return bound of step 2 and summed cluster estimates."
+    },
+    {
+      "id": "step:ppp-7",
+      "kind": "step",
+      "source": {
+        "path": "main.tex",
+        "startLine": 1652,
+        "endLine": 1654
+      },
+      "labels": [
+        "step:ppp-7"
+      ],
+      "status": "proved",
+      "leanDeclarations": [
+        "ConditionedStableLaws.poisson_convergence_of_factorial_moments",
+        "ConditionedStableLaws.independent_poisson_convergence_of_mixed_factorial_moments",
+        "ConditionedStableLaws.independent_poisson_visit_counts_of_configuration_estimates",
+        "ConditionedStableLaws.poisson_point_process_convergence_of_configuration_estimates",
+        "ConditionedStableLaws.empirical_poisson_process_convergence_of_trimmed_estimates",
+        "ConditionedStableLaws.CanonicalChain.nonempty_trimmed_configuration_estimates_of_H",
+        "ConditionedStableLaws.CanonicalChain.poisson_point_process_of_admissibility"
+      ],
+      "coverageNote": "Mixed factorial moments give independent Poisson laws and then vague convergence of the empirical point process to the constructed PRM; the configuration estimates are derived from H (nonempty_trimmed_configuration_estimates_of_H).",
+      "citedAxioms": []
+    },
+    {
+      "id": "lem:conditional-sum-second-moment",
+      "kind": "lemma",
+      "source": {
+        "path": "main.tex",
+        "startLine": 1885,
+        "endLine": 1894
+      },
+      "labels": [
+        "lem:conditional-sum-second-moment",
+        "ref:conditional-sum-second-moment"
+      ],
+      "status": "proved",
+      "leanDeclarations": [
+        "ConditionedStableLaws.SecondMoment.conditional_sum_second_moment",
+        "ConditionedStableLaws.SecondMoment.integral_sq_survival",
+        "ConditionedStableLaws.SecondMoment.exists_data",
+        "ConditionedStableLaws.SecondMoment.Data.pair_bound",
+        "ConditionedStableLaws.SecondMoment.Data.diag_bound"
+      ],
+      "citedAxioms": [],
+      "coverageNote": "For x in M \\ Z there is C_x with E_x[(sum_{i<n} g(X_i))^2 | tau>n] <= C_x (n mu(g^2) + G^2) for all bounded measurable g with |g| <= G and nu(g)=0 and all n; this implies the manuscript's bound C_x n (nu(g^2)+mu(g^2)) + C_x ||g||^2. Proof: Feynman-Kac expansion into killed-kernel words, pointwise decay of centred iterates, invariance of mu, kernel Cauchy-Schwarz, and the L^2(mu) decay of lem:l2-compactness, whose norm estimate is now proved in Lean."
+    },
+    {
+      "id": "lem:conditional-second-moment",
+      "kind": "lemma",
+      "source": {
+        "path": "main.tex",
+        "startLine": 1976,
+        "endLine": 1985
+      },
+      "labels": [
+        "lem:conditional-second-moment",
+        "ref:conditional-small-jump-second-moment"
+      ],
+      "status": "proved",
+      "leanDeclarations": [
+        "ConditionedStableLaws.SmallJumpMoment.conditional_small_jump_second_moment_singular",
+        "ConditionedStableLaws.SmallJumpMoment.conditional_small_jump_second_moment",
+        "ConditionedStableLaws.nat_div_powerScale_sq_tendsto_zero",
+        "ConditionedStableLaws.truncated_second_moment_le_of_power_tail",
+        "ConditionedStableLaws.truncated_second_moment_div_rpow_tendsto"
+      ],
+      "coverageNote": "For f_beta and B_n = positivePowerScale C alpha n with alpha<2: E_{x,n}[(B_n^{-1} sum_{i<n} h(X_i) - n B_n^{-1} nu(h))^2] <= C_x (n/B_n^2) nu(h^2) + C_x eps^2 + o(1), h = f_beta 1_{f_beta <= eps B_n}, with C_x independent of n and eps and o(1) independent of eps; the left side is the second moment of the compensated small-jump integral (eq:small-jump-centred-sum). The general version assumes eta >= eta_* on V and f bounded off V; the singular case takes V a ball around x0. Uses lem:conditional-sum-second-moment and the proved midpoint interpolation estimate. The hypothesis 1 <= alpha is not needed.",
+      "citedAxioms": []
+    },
+    {
+      "id": "lem:conditional-triangular-clt",
+      "kind": "lemma",
+      "source": {
+        "path": "main.tex",
+        "startLine": 2215,
+        "endLine": 2232
+      },
+      "labels": [
+        "lem:conditional-triangular-clt",
+        "it:tri-ass-i",
+        "it:tri-ass-ii",
+        "it:tri-ass-iii"
+      ],
+      "status": "proved",
+      "leanDeclarations": [
+        "ConditionedStableLaws.TriangularCLT.conditional_triangular_clt",
+        "ConditionedStableLaws.TriangularExpansion.eigenvalue_expansion",
+        "ConditionedStableLaws.L2Bridge.l2_bridge",
+        "ConditionedStableLaws.L2Bridge.inverse_bound"
+      ],
+      "citedAxioms": [],
+      "coverageNote": "For bounded measurable g_n with nu(g_n)=0, a_n -> infinity and assumptions (i)-(iii) (with sigma_n^2 = asymptoticVariance), for every x in M\\Z: sigma^2 >= 0 and a_n^{-1} sum_{j<n} g_n(X_j) -> N(0,sigma^2) under P_x(.|tau>n). Proof as in the manuscript with real exponential twists: the proved rank-one perturbation theorem supplies uniform eigen-data for P^ exp((s/a_n) g_n); Steps 1-2 (eigenvalue expansion with error K|u|^3 ||g||(nu(g^2)+mu(g^2))) are proved without cited axioms in L^2(mu) via the embedding of L^inf(rho); the L^2 decay comes from lem:l2-compactness; Step 3 from assumptions (i)-(iii); Step 4 from the spectral decomposition at x; the sum is taken over 0<=j<n so Step 5 is not needed; convergence in distribution via the continuity theorem for moment generating functions."
+    },
+    {
+      "id": "step:tri-clt-1",
+      "kind": "step",
+      "source": {
+        "path": "main.tex",
+        "startLine": 2267,
+        "endLine": 2276
+      },
+      "labels": [
+        "step:tri-clt-1"
+      ],
+      "status": "proved",
+      "leanDeclarations": [
+        "ConditionedStableLaws.TriangularExpansion.eigenvalue_expansion"
+      ],
+      "citedAxioms": [],
+      "coverageNote": "Proved (real exponential twist) for every eigenpair with mu(eta')=1 and bounded L^inf norm; the L^2 decay and operator bounds are hypotheses supplied by lem:l2-compactness."
+    },
+    {
+      "id": "step:tri-clt-2",
+      "kind": "step",
+      "source": {
+        "path": "main.tex",
+        "startLine": 2314,
+        "endLine": 2323
+      },
+      "labels": [
+        "step:tri-clt-2",
+        "eq:eigenvalue-expansion",
+        "eq:eigenvalue-remainder"
+      ],
+      "status": "proved",
+      "leanDeclarations": [
+        "ConditionedStableLaws.TriangularExpansion.eigenvalue_expansion"
+      ],
+      "citedAxioms": [],
+      "coverageNote": "Proved (real exponential twist) for every eigenpair with mu(eta')=1 and bounded L^inf norm; the L^2 decay and operator bounds are hypotheses supplied by lem:l2-compactness."
+    },
+    {
+      "id": "step:tri-clt-3",
+      "kind": "step",
+      "source": {
+        "path": "main.tex",
+        "startLine": 2446,
+        "endLine": 2451
+      },
+      "labels": [
+        "step:tri-clt-3"
+      ],
+      "status": "proved",
+      "leanDeclarations": [
+        "ConditionedStableLaws.TriangularCLT.conditional_triangular_clt"
+      ],
+      "citedAxioms": [],
+      "coverageNote": "Inside conditional_triangular_clt; Step 5 is unnecessary since the sum over 0<=j<n is represented directly."
+    },
+    {
+      "id": "step:tri-clt-4",
+      "kind": "step",
+      "source": {
+        "path": "main.tex",
+        "startLine": 2473,
+        "endLine": 2478
+      },
+      "labels": [
+        "step:tri-clt-4"
+      ],
+      "status": "proved",
+      "leanDeclarations": [
+        "ConditionedStableLaws.TriangularCLT.conditional_triangular_clt"
+      ],
+      "citedAxioms": [],
+      "coverageNote": "Inside conditional_triangular_clt; Step 5 is unnecessary since the sum over 0<=j<n is represented directly."
+    },
+    {
+      "id": "step:tri-clt-5",
+      "kind": "step",
+      "source": {
+        "path": "main.tex",
+        "startLine": 2503,
+        "endLine": 2508
+      },
+      "labels": [
+        "step:tri-clt-5"
+      ],
+      "status": "proved",
+      "leanDeclarations": [
+        "ConditionedStableLaws.TriangularCLT.conditional_triangular_clt"
+      ],
+      "citedAxioms": [],
+      "coverageNote": "Inside conditional_triangular_clt; Step 5 is unnecessary since the sum over 0<=j<n is represented directly."
+    },
+    {
+      "id": "step:bdy-1",
+      "kind": "step",
+      "source": {
+        "path": "main.tex",
+        "startLine": 2538,
+        "endLine": 2540
+      },
+      "labels": [
+        "step:bdy-1"
+      ],
+      "status": "proved",
+      "leanDeclarations": [
+        "ConditionedStableLaws.GaussianBoundary.uScale_div_bScale_tendsto",
+        "ConditionedStableLaws.GaussianBoundary.bScale_tendsto",
+        "ConditionedStableLaws.GaussianBoundary.uScale_tendsto"
+      ],
+      "citedAxioms": [],
+      "coverageNote": "||g_n||_inf/B_n <= (u_n + nu(f_beta))/B_n -> 0: u_n/B_n = (log n)^{-1/4} and B_n -> infinity; used as assumption (i) in stable_law_boundary."
+    },
+    {
+      "id": "step:bdy-2",
+      "kind": "step",
+      "source": {
+        "path": "main.tex",
+        "startLine": 2550,
+        "endLine": 2552
+      },
+      "labels": [
+        "step:bdy-2"
+      ],
+      "status": "proved",
+      "leanDeclarations": [
+        "ConditionedStableLaws.truncated_second_moment",
+        "ConditionedStableLaws.truncated_second_moment_div_log_tendsto",
+        "ConditionedStableLaws.GaussianBoundary.trunc_sq_div_log_tendsto",
+        "ConditionedStableLaws.GaussianBoundary.log_uScale_div_log_tendsto",
+        "ConditionedStableLaws.GaussianBoundary.exists_weight_lower"
+      ],
+      "coverageNote": "nu(f_beta^2 1_{f_beta<=u_n}) ~ 2C log u_n ~ C log n from the tail asymptotic by layer cake; mu(g_n^2) = O(log n) since eta is bounded below where f_beta is large (exists_weight_lower). Assumption (ii) is established inside stable_law_boundary.",
+      "citedAxioms": []
+    },
+    {
+      "id": "step:bdy-3",
+      "kind": "step",
+      "source": {
+        "path": "main.tex",
+        "startLine": 2570,
+        "endLine": 2575
+      },
+      "labels": [
+        "step:bdy-3",
+        "ref:truncated-clt-alpha-two"
+      ],
+      "status": "proved",
+      "leanDeclarations": [
+        "ConditionedStableLaws.L2_inner_tendsto_of_bounded_ae",
+        "ConditionedStableLaws.L2_covariance_series_tendsto_zero",
+        "ConditionedStableLaws.GaussianBoundary.correlation_series_div_tendsto",
+        "ConditionedStableLaws.TriangularCLT.conditional_triangular_clt"
+      ],
+      "coverageNote": "The covariance series of g_n is o(log n): eta g_n/sqrt(log n) is bounded in L^2(mu) and tends to 0 pointwise, hence weakly, and the compact L^2 remainder powers (lem:l2-compactness) make the series vanish. Hence n sigma_n^2/B_n^2 -> 1 and the conditional triangular CLT gives the truncated CLT.",
+      "citedAxioms": []
+    },
+    {
+      "id": "step:bdy-4",
+      "kind": "step",
+      "source": {
+        "path": "main.tex",
+        "startLine": 2647,
+        "endLine": 2652
+      },
+      "labels": [
+        "step:bdy-4"
+      ],
+      "status": "proved",
+      "leanDeclarations": [
+        "ConditionedStableLaws.GaussianBoundary.nat_mul_tail_tendsto",
+        "ConditionedStableLaws.GaussianBoundary.tendsto_measure_gt_zero",
+        "ConditionedStableLaws.L2Variance.sum_targets_tendsto_zero"
+      ],
+      "citedAxioms": [],
+      "coverageNote": "n nu(f_beta > u_n) -> 0, n mu(f_beta > u_n) -> 0 via the eta lower bound, rho(f_beta > u_n) -> 0, and the general conditioned target-visit estimate (early marginals with lem:uniform-small-targets, late marginals across the initial gap) give the vanishing probability of an observation above u_n."
+    },
+    {
+      "id": "step:bdy-5",
+      "kind": "step",
+      "source": {
+        "path": "main.tex",
+        "startLine": 2678,
+        "endLine": 2680
+      },
+      "labels": [
+        "step:bdy-5"
+      ],
+      "status": "proved",
+      "leanDeclarations": [
+        "ConditionedStableLaws.GaussianBoundary.tail_mean_tendsto",
+        "ConditionedStableLaws.GaussianBoundary.stable_law_boundary"
+      ],
+      "citedAxioms": [],
+      "coverageNote": "(n/B_n) nu(f_beta 1_{f_beta>u_n}) -> 0 (from the alpha=2 compensation asymptotic and monotonicity), and off the large-observation event the truncated and original centred sums differ by this deterministic term; Slutsky's theorem with varying conditioned laws concludes."
+    },
+    {
+      "id": "thm:conditional-clt-bounded",
+      "kind": "theorem",
+      "source": {
+        "path": "main.tex",
+        "startLine": 2710,
+        "endLine": 2721
+      },
+      "labels": [
+        "thm:conditional-clt-bounded",
+        "ref:conditional-asymptotic-variance"
+      ],
+      "status": "proved",
+      "leanDeclarations": [
+        "ConditionedStableLaws.ConditionalCLT.conditional_clt_bounded",
+        "ConditionedStableLaws.ConditionalCLT.asymptoticVariance",
+        "ConditionedStableLaws.ConditionalCLT.summable_abs_correlation",
+        "ConditionedStableLaws.TriangularCLT.conditional_triangular_clt"
+      ],
+      "citedAxioms": [],
+      "coverageNote": "For bounded measurable g and x in M\\Z: the correlation series converges absolutely (from the pointwise decay of centred normalized iterates), sigma_g^2 >= 0, and n^{-1/2} sum_{j<n} gbar(X_j) -> N(0, sigma_g^2) under P_x(.|tau>n) (for sigma_g^2 = 0 this is delta_0). As in the manuscript, the theorem is the special case g_n = gbar, a_n = sqrt(n) of lem:conditional-triangular-clt."
+    },
+    {
+      "id": "thm:conditional-transfer",
+      "kind": "theorem",
+      "source": {
+        "path": "appendix.tex",
+        "startLine": 333,
+        "endLine": 359
+      },
+      "labels": [
+        "thm:conditional-transfer",
+        "it:cond-trans-i",
+        "it:cond-trans-ii"
+      ],
+      "status": "proved",
+      "leanDeclarations": [
+        "ConditionedStableLaws.ConditionalTransfer.conditional_transfer",
+        "ConditionedStableLaws.ConditionalTransfer.conditional_transfer_mean",
+        "ConditionedStableLaws.ConditionalTransfer.transfer_estimate",
+        "ConditionedStableLaws.ConditionalTransfer.ae_decomposition",
+        "ConditionedStableLaws.BoundedConvergence.tendsto_integral_abs_of_bounded_in_probability"
+      ],
+      "coverageNote": "Both probability and bounded-mean transfer are proved without cited axioms. KilledLiveTransfer proves transfer for the chain killed on Z through an exact finite-history density identity, inverse endpoint-weight uniform integrability and a positive limiting normalizer. ConditionalTransfer combines this with the proved no-return and entrance-time decomposition, geometric survival decay and series dominated convergence.",
+      "citedAxioms": []
+    },
+    {
+      "id": "step:conditional-lln-1",
+      "kind": "step",
+      "source": {
+        "path": "appendix.tex",
+        "startLine": 574,
+        "endLine": 577
+      },
+      "labels": [
+        "step:conditional-lln-1"
+      ],
+      "status": "proved",
+      "leanDeclarations": [
+        "ConditionedStableLaws.RefinedLLN.lln_bounded",
+        "ConditionedStableLaws.RefinedLLN.conditioned_average_Z_tendsto_zero"
+      ],
+      "citedAxioms": [],
+      "coverageNote": "The bounded conditional L1 LLN is proved directly from the axiom-free conditional exponential concentration theorem and bounded convergence under changing measures. This bypasses Q-process ergodicity and the cited conditional transfer theorem for bounded observables, including observations which do not vanish on Z. The separate Z-visit estimate remains proved."
+    },
+    {
+      "id": "step:conditional-lln-2",
+      "kind": "step",
+      "source": {
+        "path": "appendix.tex",
+        "startLine": 656,
+        "endLine": 659
+      },
+      "labels": [
+        "step:conditional-lln-2"
+      ],
+      "status": "proved",
+      "leanDeclarations": [
+        "ConditionedStableLaws.RefinedLLN.lln_probability"
+      ],
+      "citedAxioms": [],
+      "coverageNote": "Proved through truncation and pointwise Doob-kernel Cesaro estimates for L1(nu), followed by inverse endpoint-weight transfer. No stationary Birkhoff or ergodicity axiom is used."
+    },
+    {
+      "id": "step:conditional-lln-3",
+      "kind": "step",
+      "source": {
+        "path": "appendix.tex",
+        "startLine": 671,
+        "endLine": 682
+      },
+      "labels": [
+        "step:conditional-lln-3",
+        "ref:l1-quasi-ergodic-limit2"
+      ],
+      "status": "proved",
+      "leanDeclarations": [
+        "ConditionedStableLaws.RefinedLLN.lln_mean_nonneg",
+        "ConditionedStableLaws.RefinedLLN.geometric_cesaro_tendsto_zero",
+        "ConditionedStableLaws.RefinedLLN.lintegral_conditioned_average",
+        "ConditionedStableLaws.KernelMaximal.measure_maximal_kernel_sum",
+        "ConditionedStableLaws.KernelCesaro.tendsto_ae_nonneg_kernel_sum",
+        "ConditionedStableLaws.QProcessCesaro.nonneg_kernel_cesaro"
+      ],
+      "citedAxioms": [],
+      "coverageNote": "Proved for nonnegative observables, the case used in Step 4: Hopf maximal inequality for invariant kernels, L1 closure via Borel-Cantelli and truncation, bounded Doob Cesaro limits from the proved Q-process variance bound, then exact conditioned single-time formula and geometric Toeplitz. No cited ergodic theorem or stationary Q-process ergodicity is used."
+    },
+    {
+      "id": "step:conditional-lln-4",
+      "kind": "step",
+      "source": {
+        "path": "appendix.tex",
+        "startLine": 779,
+        "endLine": 782
+      },
+      "labels": [
+        "step:conditional-lln-4"
+      ],
+      "status": "proved",
+      "leanDeclarations": [
+        "ConditionedStableLaws.RefinedLLN.lln_L1"
+      ],
+      "citedAxioms": [],
+      "coverageNote": "Conditional L1 LLN from bounded truncations, the proved nonnegative conditional-mean limit for tails, dominated convergence and a countable common null set. No cited axioms remain in F(ii)."
+    }
+  ],
+  "statusMeaning": {
+    "proved": "The indicated statement is proved from the explicit mathematical input data in its local proof; upstream existence/identification theorems retain their own statuses.",
+    "defined": "The mathematical definition or standing hypothesis is encoded.",
+    "partial": "Only the specifically documented fragments are proved. The source result is not fully formalized.",
+    "not_formalized": "No claim of a complete checked declaration or proof for this source item.",
+    "cited_axiom": "A result the manuscript quotes from the literature, stated as an axiom in ConditionedStableLaws/Cited/. Not proved.",
+    "proved_modulo_cited": "Proved in Lean from H and the explicitly listed cited axioms (field citedAxioms); no other assumption."
+  },
+  "additionalCheckedInfrastructure": [
+    {
+      "file": "ConditionedStableLaws/CanonicalChain.lean",
+      "description": "Actual Ionescu\u2013Tulcea path law, initial-state marginal, measurable survival conditioning, zero extensions and path sums."
+    },
+    {
+      "file": "ConditionedStableLaws/WeakConvergence.lean",
+      "description": "Bounded continuous test function convention equals weak convergence of pushforward probability measures."
+    },
+    {
+      "file": "ConditionedStableLaws/ShrinkingTargets.lean",
+      "description": "Vanishing target mass, null centre and eventual exclusion/positive-weight containment."
+    },
+    {
+      "file": "ConditionedStableLaws/CemeteryBridge.lean",
+      "description": "Canonical-to-killed one-step bridge; PathSurvival.lean proves all-time survival and conditional endpoint identities."
+    },
+    {
+      "file": "ConditionedStableLaws/ConvergingTogether.lean",
+      "description": "Slutsky and two-stage approximation for actual real random variables under changing probability measures."
+    },
+    {
+      "file": "ConditionedStableLaws/EmpiricalPaths.lean",
+      "description": "Actual empirical point measures on canonical killed paths and their tail-count identities under conditioning."
+    },
+    {
+      "file": "ConditionedStableLaws/SpectralSurvival.lean",
+      "description": "Actual operator gap implies continuous eigenfunction, uniform normalized survival convergence, explicit uniform bounds, and canonical Q-process limit."
+    },
+    {
+      "file": "ConditionedStableLaws/FirstMoments.lean",
+      "description": "Exact truncated first-moment identity, power/logarithmic centering asymptotics, and actual integrability above tail exponent one, all from tail assumptions."
+    },
+    {
+      "file": "ConditionedStableLaws/Toeplitz.lean",
+      "description": "Toeplitz's lemma (cited at appendix.tex:765), proved rather than assumed."
+    },
+    {
+      "file": "ConditionedStableLaws/MarkovPairs.lean",
+      "description": "One- and two-time laws of Markov trajectories; E[a(X_i)b(X_{i+m})] formula."
+    },
+    {
+      "file": "ConditionedStableLaws/QProcessVariance.lean",
+      "description": "Signed Doob identity, pointwise exponential decay of centered kernel iterates, Q-process correlation decay, variance bound and Q-process LLN for bounded observables (no cited axioms)."
+    },
+    {
+      "file": "ConditionedStableLaws/KernelLp.lean",
+      "description": "Kernel integral operators on L1(mu) and Linf(mu) for a left eigenmeasure, compatible pair."
+    },
+    {
+      "file": "ConditionedStableLaws/RestrictLp.lean",
+      "description": "Restriction Linf(rho) -> Linf(mu) with norm-preserving lifts; transfer of compactness and operator norms."
+    },
+    {
+      "file": "ConditionedStableLaws/LpCompatibility.lean",
+      "description": "Algebra of compatible Lp operator pairs and uniqueness on finite measure spaces."
+    },
+    {
+      "file": "ConditionedStableLaws/MidpointInterpolation.lean",
+      "description": "Finite weighted real midpoint interpolation, proved from mathlib's Hadamard three-lines theorem via complexification."
+    },
+    {
+      "file": "ConditionedStableLaws/LpMidpointInterpolation.lean",
+      "description": "The required compatible L1-Linfinity midpoint operator bound on real L2, reduced to simple functions and extended by density."
+    },
+    {
+      "file": "ConditionedStableLaws/ConditionedSingle.lean",
+      "description": "Single-observation conditioned bound E_x[g(X_i)|tau>n] <= (eta(x)/a_n) nu(g) + D||g|| (theta^{i-1}+theta^{n-1-i})."
+    },
+    {
+      "file": "ConditionedStableLaws/FeynmanKac.lean",
+      "description": "Feynman-Kac identity: survival-weighted path products of observables equal killed-kernel operator words."
+    },
+    {
+      "file": "ConditionedStableLaws/SecondMoment.lean",
+      "description": "Operator-word algebra for pair/diagonal terms, Cauchy-Schwarz, normalized-kernel input structure from H, pair/diagonal decay bounds, geometric double sums."
+    },
+    {
+      "file": "ConditionedStableLaws/SmallJumpMoment.lean",
+      "description": "Truncation f 1_{f<=a}, centring identities for path Birkhoff sums, and the compensated small-jump second-moment bound."
+    },
+    {
+      "file": "ConditionedStableLaws/CompensationAsymptotics.lean",
+      "description": "Scaled tails, scaled truncated second moments, and the centring constants n B_n^{-1} nu(f 1_{eps B_n<f<=B_n}) -> log(1/eps) (alpha=1) and n B_n^{-1} nu(f 1_{f>eps B_n}) -> alpha/(alpha-1) eps^{1-alpha} (alpha>1)."
+    },
+    {
+      "file": "ConditionedStableLaws/CompensatedPoissonLimits.lean",
+      "description": "Compensator integrals of the power intensity, vanishing of jumps above R_k for every point measure, and convergence of cut compensated Poisson integrals to Z_1 and Z_alpha."
+    },
+    {
+      "file": "ConditionedStableLaws/StableLawCompensated.lean",
+      "description": "Exact pathwise small/middle/large decomposition, Chebyshev bound for compensated small jumps, and the conditional stable laws for alpha=1 and 1<alpha<2."
+    },
+    {
+      "file": "ConditionedStableLaws/TwistedOperators.lean",
+      "description": "Multiplication operators on L^inf, exp(t M_h) = M_{e^{th}}, operator exponential Taylor bounds, and the uniform power bound ||T(t)^k|| <= B e^{K k t^2} from the cited eigenvalue stability, with |Lambda(t)-1| = O(t^2) derived from the eigenrelation."
+    },
+    {
+      "file": "ConditionedStableLaws/Concentration.lean",
+      "description": "Feynman-Kac representation of conditioned exponential moments, L^inf representation of the twisted killed recursion, and the conditional exponential concentration theorem."
+    },
+    {
+      "file": "ConditionedStableLaws/MGFConvergence.lean",
+      "description": "Continuity theorem: convergence of moment generating functions at every real point to that of a law with finite exponential moments implies weak convergence; Gaussian form."
+    },
+    {
+      "file": "ConditionedStableLaws/ConditionalCLTBounded.lean",
+      "description": "Centred observable, correlation terms and asymptotic variance, and their identification with the normalized kernel iterates."
+    },
+    {
+      "file": "ConditionedStableLaws/L2Bridge.lean",
+      "description": "Embedding L^inf(rho) -> L^2(mu), L^2 bounds for the transition operator and its powers on ker mu, Cauchy-Schwarz, and the inverse bound for Id - T0 on ker mu."
+    },
+    {
+      "file": "ConditionedStableLaws/TriangularExpansion.lean",
+      "description": "Steps 1-2 of the triangular CLT: the eigenvalue expansion for row-dependent exponential twists."
+    },
+    {
+      "file": "ConditionedStableLaws/TriangularCLT.lean",
+      "description": "The conditional triangular-array CLT."
+    },
+    {
+      "file": "ConditionedStableLaws/BoundedCLT.lean",
+      "description": "The conditional CLT for bounded observables as the case g_n = gbar, a_n = sqrt(n) of the triangular lemma; absolute convergence of the correlation series."
+    },
+    {
+      "file": "ConditionedStableLaws/L2CLT.lean",
+      "description": "Conditioned target-visit estimate for targets with rho- and n mu-vanishing mass, the conditioned large-observation estimate, and the conditional CLT for L^2 observables."
+    },
+    {
+      "file": "ConditionedStableLaws/GaussianBoundary.lean",
+      "description": "The Gaussian boundary case alpha=2: scales, truncated moment and tail-mean asymptotics, the covariance series o(log n) by compactness, and the theorem."
+    },
+    {
+      "file": "ConditionedStableLaws/StableIdentification.lean",
+      "description": "Identification of the limits in parts (i)-(iii) as alpha-stable laws via the proved characteristic-exponent scaling theorem; no cited stable-law axiom."
+    },
+    {
+      "file": "ConditionedStableLaws/MixingAllOrders.lean",
+      "description": "lem:mix for signed bounded observables via nested killed-kernel integrals and L^inf decay."
+    },
+    {
+      "file": "ConditionedStableLaws/QProcessDefinition.lean",
+      "description": "The Q-process definition, its uniqueness, and the Doob trajectory law as the Q-process under H."
+    },
+    {
+      "file": "ConditionedStableLaws/UniformSmallTargets.lean",
+      "description": "lem:uniform-small-targets with eigen-data from H."
+    },
+    {
+      "file": "ConditionedStableLaws/ClusterMixingFromH.lean",
+      "description": "lem:cluster-mixing with the spectral gap produced from H."
+    },
+    {
+      "file": "ConditionedStableLaws/LpCompactInterpolation.lean",
+      "description": "Finite conditional expectations as compatible Lp contractions, finite-dimensional L2 range, uniform simple approximation on compact Linfinity sets, and axiom-free compact interpolation for the finite-measure real L1-Linfinity midpoint instance used by the article."
+    },
+    {
+      "file": "ConditionedStableLaws/StableScaling.lean",
+      "description": "The exact power-density stable-law identification used by the paper, proved by positive scaling of the explicit characteristic exponent with a finite cutoff-drift correction. No general Levy-Khintchine representation/classification theorem or cited stable-law axiom."
+    }
+  ],
+  "citedAxioms": {
+    "ConditionedStableLaws.Cited.castro_qProcess_stationary_ergodic": {
+      "reference": "Castro\u2013Chemnitz\u2013Chu\u2013Engel\u2013Lamb\u2013Rasmussen, Prop. 2.6(iii)",
+      "source": "main.tex:1022-1041"
+    }
+  }
+}

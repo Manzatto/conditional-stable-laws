@@ -1,0 +1,57 @@
+{
+  "version": "0.2.0",
+  "toolchain": "leanprover/lean4:v4.35.0",
+  "provedScope": {
+    "mainTheorems": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+    ],
+    "remarks": 9,
+    "formulation": "Canonical path space under Hypothesis H"
+  },
+  "standardFoundations": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "sourceSnapshot": [
+    {
+      "path": "main.tex",
+      "sha256": "02e95e900beaccc30d2cfcc3fc83af9bae43317766b42d2553f99582f860dd0b",
+      "lineCount": 3113
+    },
+    {
+      "path": "appendix.tex",
+      "sha256": "a8365c9a3912b631edfb1efb0aa26440008feecbb950f98a4681052f4e662040",
+      "lineCount": 833
+    }
+  ],
+  "sourceAmendments": [
+    {
+      "id": "remark.independent_limiting_counts",
+      "path": "main.tex",
+      "sourceLines": [
+        460,
+        462
+      ],
+      "revisedMathematicalWording": "The limiting counts are independent, while the finite-n counts need not be independent.",
+      "scope": "This approved wording is covered by the Lean proofs. The recorded hashes identify the unchanged local base snapshot, not an independently supplied revised manuscript."
+    }
+  ],
+  "finiteCountRemarkWording": "Finite-n counts need not be independent.",
+  "manuscriptIncluded": false,
+  "remainingWholePaperWork": [
+    "General compact interpolation beyond the proved midpoint instance",
+    "Stationary Q-process ergodicity still uses a registered cited axiom",
+    "Five examples excluded from the requested scope"
+  ],
+  "omittedUnusedSourceFiles": [
+    "ConditionedStableLaws/Cited/KellerLiverani.lean"
+  ],
+  "omissionReason": "Unused standalone Keller\u2013Liverani axiom stub; no packaged module imports it",
+  "verifyCommand": "python3 scripts/check.py --require-remarks"
+}
