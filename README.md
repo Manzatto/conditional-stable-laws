@@ -1,8 +1,8 @@
 <div align="center">
 
-# Conditioned Stable Laws
+# Conditional Stable Laws and Rare-Event Limits for Absorbing Markov Chains
 
-A Lean 4 formalization of conditional limit laws for absorbing Markov chains.
+A Lean 4 formalisation of the paper Conditional Stable Laws and Rare-Event Limits for Absorbing Markov Chains  https://arxiv.org/abs/2609.22499.
 
 **Theorems A–F · Nine remarks · Version 0.2.0 · Lean 4.35.0 · mathlib**
 
@@ -10,7 +10,7 @@ A Lean 4 formalization of conditional limit laws for absorbing Markov chains.
 
 The six main results are proved without `sorry` or cited axioms. The formalization
 uses the canonical path-space formulation of the chain, under Hypothesis H.
-This repository contains only the Lean formalization, not the manuscript files.
+This repository contains only the Lean formalisation, not the manuscript files.
 Full-paper coverage is still incomplete; see [Scope](#scope).
 
 ## Main results
@@ -39,9 +39,9 @@ f(x) = g(x) / d(x, x₀)^β,   with any fixed finite value at x₀,
 ```
 
 where `g` is continuous, `g(x₀) ≠ 0` and `β > 0`. All four regimes are proved
-under Hypothesis H, with `α = dimension / β`, the normalization `|g(x₀)| Bₙ`,
-and no cited axioms. When `g(x₀) < 0` the stable limits are reflected; the
-centered Gaussian is unchanged.
+under Hypothesis H, with `α = dimension / β`, the normalisation `|g(x₀)| Bₙ`,
+and no cited axioms. When `g(x₀) < 0`, the stable limits are reflected; the
+centred Gaussian is unchanged.
 
 | Regime | Lean theorem |
 | :---: | --- |
@@ -54,7 +54,7 @@ The theorems are in
 [ContinuousMultiplierLimits](ConditionedStableLaws/ContinuousMultiplierLimits.lean)
 and, for α = 1,
 [ContinuousMultiplierOneSigned](ConditionedStableLaws/ContinuousMultiplierOneSigned.lean).
-At α = 1 the centering is the integral truncated by `|f|`. See the other
+At α = 1 the centring is the integral truncated by `|f|`. See the other
 remarks in [Development](docs/Development.md#remarks).
 
 ## Use
@@ -93,7 +93,7 @@ as errors (`warningAsError = true`). The project's files do not use Lean's
 module system, which mathlib now targets; `allowNonModules = true` in
 `lakefile.toml` declares this. Verification builds the library,
 checks declaration coverage, audits the built library's axioms, and
-checks the six public theorems against only `propext`, `Classical.choice` and
+checks the six public theorems against only `propext`, `Classical.choice`, and
 `Quot.sound`. A successful proof check does not mean complete manuscript coverage.
 
 The manuscript is not needed to build or verify the Lean proofs. Source hashes
