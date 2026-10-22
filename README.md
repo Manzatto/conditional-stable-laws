@@ -4,8 +4,6 @@
 
 A Lean 4 formalisation of the paper Conditional Stable Laws and Rare-Event Limits for Absorbing Markov Chains  https://arxiv.org/abs/2609.22499.
 
-**Theorems A–F · Nine remarks · Lean 4.35.0 · mathlib**
-
 </div>
 
 The six main results are proved without `sorry` or cited axioms. The formalization
