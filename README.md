@@ -1,149 +1,136 @@
-<div align="center">
+# Conditional stable laws and rare-event limits for absorbing Markov chains — Lean formalisation
 
-# Conditional Stable Laws and Rare-Event Limits for Absorbing Markov Chains
+This repository contains a Lean 4 formalisation of Theorems A–F and all nine remarks of the article
+[*Conditional Stable Laws and Rare-Event Limits for Absorbing Markov Chains*](https://arxiv.org/abs/2609.22499),
+by Bernat Bassols Cornudella and Matheus M. Castro.
 
-A Lean 4 formalisation of the paper Conditional Stable Laws and Rare-Event Limits for Absorbing Markov Chains  https://arxiv.org/abs/2609.22499.
+- Every part of Theorems A–F and all nine remarks is proved.
+- These proofs contain no `sorry` and use no additional cited axioms.
+- Their axiom dependencies are confined to `propext`, `Classical.choice` and `Quot.sound`.
 
-</div>
+The project uses Lean 4.35.0 and Mathlib.
 
-The six main results are proved without `sorry` or cited axioms. The formalization
-uses the canonical path-space formulation of the chain, under Hypothesis H.
-This repository contains only the Lean formalisation, not the manuscript files.
-Full-paper coverage is still incomplete; see [Scope](#scope).
+## Main theorems
 
-## Main results
+The theorems follow the lettering of the article. They are collected in
+[MainResults.lean](ConditionedStableLaws/MainResults.lean), in the namespace
+`ConditionedStableLaws`.
 
-One letter, one module, one public theorem. The order follows the manuscript.
+| Article | Content | Lean |
+| --- | --- | --- |
+| Theorem A | Poisson point-process convergence for the normalised singular observations, including joint convergence of disjoint interval counts to independent Poisson variables | `TheoremA` |
+| Theorem B | Totally right-skewed stable limits for $`0<\alpha<2`$, with the appropriate centring in each regime, and the Gaussian boundary limit at $`\alpha=2`$ with normalisation $`\sqrt{C(x_0)n\log n}`$ | `TheoremB` |
+| Theorem C | Conditional central limit theorem for finite-valued observables in $`L^2(\mu)`$, absolute convergence of the covariance series and nonnegativity of the asymptotic variance | `TheoremC` |
+| Theorem D | Conditional exponential concentration for bounded measurable observables, with bound $`C_x e^{-a_h\varepsilon^2 n}`$ for every $`\varepsilon>0`$ and $`n\geq1`$ | `TheoremD` |
+| Theorem E | Conditional Poisson law for visits to shrinking neighbourhoods when $`n\nu(U_n)\to t`$, for every surviving initial state distinct from the target | `TheoremE` |
+| Theorem F | Conditional mean laws of large numbers for bounded and $`L^1(\mu)`$ observables, and conditional convergence in probability for $`L^1(\nu)`$ observables, with the initial-state and vanishing-on-$`Z`$ conditions of the article | `TheoremF` |
 
-| Theorem | Result | Lean module |
-| :---: | --- | --- |
-| **A** | Poisson point-process convergence | [TheoremA](ConditionedStableLaws/TheoremA.lean) |
-| **B** | Stable laws and the Gaussian boundary | [TheoremB](ConditionedStableLaws/TheoremB.lean) |
-| **C** | Conditional central limit theorem in L²(μ) | [TheoremC](ConditionedStableLaws/TheoremC.lean) |
-| **D** | Conditional exponential concentration | [TheoremD](ConditionedStableLaws/TheoremD.lean) |
-| **E** | Conditional Poisson law for shrinking targets | [TheoremE](ConditionedStableLaws/TheoremE.lean) |
-| **F** | Refined conditional laws of large numbers | [TheoremF](ConditionedStableLaws/TheoremF.lean) |
+`TheoremB.part_i`–`TheoremB.part_iv` and `TheoremF.part_i`–`TheoremF.part_iii` give the individual
+parts. The point-process, interval-count and Poisson-law conclusions are also available separately
+as `TheoremA.pointProcess`, `TheoremA.intervalCounts` and `TheoremA.poissonLaw`.
 
-A includes the point-process limit, joint interval-count limits and the Poisson
-law of the limit. B collects its four regimes; F collects its three LLN parts.
-Their individual components remain available under the same letter.
+The proofs use the canonical path-space realisation of the chain, sums over $`0,\ldots,n-1`$ and
+conditioning on $`\tau>n`$. The normalised eigen-data and spectral gap are derived from Hypothesis H.
+Regularity and admissibility at the singularity point are the local assumptions of the article.
 
-### Continuous multipliers
+[docs/StatementsAudit.md](docs/StatementsAudit.md) compares the hypotheses and conclusions of each
+main theorem and all nine remarks with the article. It records the canonical-path encoding,
+the spectral data derived from H, and the extended parameter ranges in Theorems A and E.
 
-The continuous-multiplier remark extends Theorem B to observables
+## Remarks and continuous multipliers
+
+All nine remarks are collected in [Remarks.lean](ConditionedStableLaws/Remarks.lean).
+In particular, the formalisation covers the extension of Theorem B to
+
+```math
+f(x)=\frac{g(x)}{d_M(x,x_0)^\beta},\qquad x\ne x_0,
+```
+
+where $`g`$ is continuous, $`g(x_0)\ne0`$ and $`\beta>0`$. Any fixed finite value may be assigned at
+$`x_0`$. With $`\alpha=d/\beta`$, all four regimes are proved with the normalisation
+
+```math
+B_{n,g}=\lvert g(x_0)\rvert B_n.
+```
+
+| Regime | Lean |
+| --- | --- |
+| $`0<\alpha<1`$ | `ContinuousMultiplier.stable_law_small_signed` |
+| $`\alpha=1`$ | `ContinuousMultiplier.stable_law_one_signed` |
+| $`1<\alpha<2`$ | `ContinuousMultiplier.stable_law_mid_signed` |
+| $`\alpha=2`$ | `ContinuousMultiplier.stable_law_boundary_signed` |
+
+For $`0<\alpha<1`$, no centring is required. At $`\alpha=1`$, the centring uses the absolute-value
+truncation
+
+```math
+A_{n,g}=n\nu\!\left(f\,\mathbf{1}_{\{\lvert f\rvert\leq B_{n,g}\}}\right).
+```
+
+For $`1<\alpha\leq2`$, the centring is $`n\nu(f)`$. If $`g(x_0)<0`$, the stable limits are reflected
+about the origin; the Gaussian limit is unchanged.
+
+The other remarks cover Birkhoff indexing, the conservative case, admissibility, independence of
+limiting counts, starting at the shrinking target, integrability with respect to $`\mu`$ and
+$`\nu`$, the canonical $`Q`$-process, and the interval-semiring criterion for random measures.
+
+## Mathematics used by the proofs
+
+The development includes the following supporting results:
+
+- **Spectral theory.** Positive eigenfunctions and eigenmeasures, the spectral decomposition and
+  exponential gap under Hypothesis H, and the resulting quasi-stationary and quasi-ergodic measures.
+- **Conditional mixing and Poisson limits.** Mixing of all orders, estimates for separated clusters,
+  short-return bounds, factorial moments, the method of moments and convergence in the vague
+  topology on locally finite point measures on $`(0,\infty]`$.
+- **Stable laws.** Construction of Poisson random measures and compensated Poisson integrals,
+  their Laplace and characteristic functions, small-jump estimates and the stable scaling identities.
+- **Gaussian limits.** The finite-measure $`L^1`$–$`L^\infty`$ midpoint compact-interpolation theorem
+  used to obtain $`L^2`$ compactness, spectral perturbation for the triangular-array CLT, and the
+  covariance and truncation estimates for the Gaussian boundary and $`L^2`$ CLT.
+- **Refined laws of large numbers.** Maximal inequalities, Cesàro convergence and transfer of
+  convergence from the Doob-transformed chain to the survival-conditioned laws.
+
+## Layout
 
 ```text
-f(x) = g(x) / d(x, x₀)^β,   with any fixed finite value at x₀,
+.
+├── README.md
+├── lakefile.toml, lake-manifest.json, lean-toolchain
+├── ConditionedStableLaws.lean          root library import
+├── ConditionedStableLaws/
+│   ├── MainResults.lean               main theorem interface
+│   ├── TheoremA.lean … TheoremF.lean   the six main results
+│   ├── Remarks.lean                   the nine remarks
+│   └── …                             supporting proofs
+├── Audit.lean                         project axiom audit
+├── AuditMainTheorems.lean             standard-axiom audit for A–F
+├── AuditRemarks.lean                  standard-axiom audit for the remarks
+├── docs/
+│   └── StatementsAudit.md              comparison of the article and Lean statements
+└── scripts/
+    └── check.py                       build, declaration and axiom checks
 ```
 
-where `g` is continuous, `g(x₀) ≠ 0` and `β > 0`. All four regimes are proved
-under Hypothesis H, with `α = dimension / β`, the normalisation `|g(x₀)| Bₙ`,
-and no cited axioms. When `g(x₀) < 0`, the stable limits are reflected; the
-centred Gaussian is unchanged.
+## Build
 
-| Regime | Lean theorem |
-| :---: | --- |
-| 0 < α < 1 | `ContinuousMultiplier.stable_law_small_signed` |
-| α = 1 | `ContinuousMultiplier.stable_law_one_signed` |
-| 1 < α < 2 | `ContinuousMultiplier.stable_law_mid_signed` |
-| α = 2 | `ContinuousMultiplier.stable_law_boundary_signed` |
-
-The theorems are in
-[ContinuousMultiplierLimits](ConditionedStableLaws/ContinuousMultiplierLimits.lean)
-and, for α = 1,
-[ContinuousMultiplierOneSigned](ConditionedStableLaws/ContinuousMultiplierOneSigned.lean).
-At α = 1 the centring is the integral truncated by `|f|`. See the other
-remarks in [Development](docs/Development.md#remarks).
-
-## Use
-
-A single import exposes the public interface:
-
-```lean
-import ConditionedStableLaws.MainResults
-
-open ConditionedStableLaws
-
-#check TheoremA
-#check TheoremB
-#check TheoremC
-#check TheoremD
-#check TheoremE
-#check TheoremF
-```
-
-For example, `TheoremB.part_i` through `TheoremB.part_iv` and
-`TheoremF.part_i` through `TheoremF.part_iii` expose the individual parts.
-See the [public API guide](docs/MainResults.md) for all companion declarations.
-
-## Verify
-
-Install Lean through [elan](https://lean-lang.org/install/manual/) and Python 3,
-then run from the repository root:
+Install Lean through [elan](https://github.com/leanprover/elan). Then, from this directory:
 
 ```sh
 lake exe cache get
-python3 scripts/check.py --require-remarks
+lake build
 ```
 
-The toolchain and dependency manifest are pinned. Project warnings are treated
-as errors (`warningAsError = true`). The project's files do not use Lean's
-module system, which mathlib now targets; `allowNonModules = true` in
-`lakefile.toml` declares this. Verification builds the library,
-checks declaration coverage, audits the built library's axioms, and
-checks the six public theorems against only `propext`, `Classical.choice`, and
-`Quot.sound`. A successful proof check does not mean complete manuscript coverage.
+The compiler and dependency versions are fixed by `lean-toolchain` and `lake-manifest.json`.
+Project warnings are treated as errors.
 
-The manuscript is not needed to build or verify the Lean proofs. Source hashes
-are checked only if the corresponding external files are supplied. Use
-`python3 scripts/check.py --require-manuscript --manuscript-dir /path/to/source`
-to require that extra check. `--require-remarks` additionally requires all nine
-remarks to be proved without cited axioms. The GitHub Actions workflow runs
-this same proof and coverage check on pushes and pull requests.
-
-The source archive contains a verification log, a source manifest, and
-`RELEASE.json` with the checked scope. To prepare a new archive after edits:
+To check that the main results and all nine remarks depend only on the three standard axioms, run:
 
 ```sh
-mkdir -p .tools
-python3 scripts/check.py --require-remarks > .tools/release-verification.log 2>&1
-python3 scripts/package_release.py --verification-log .tools/release-verification.log
+lake env lean AuditMainTheorems.lean
+lake env lean AuditRemarks.lean
 ```
 
-The packager requires a current successful verification receipt and checks
-that the source files have not changed since that run. It excludes dependency
-caches, generated binaries, manuscript files, and the unused standalone
-Keller–Liverani axiom stub.
-
-## Organization
-
-- [MainResults.lean](ConditionedStableLaws/MainResults.lean) — the main theorem import.
-- [Remarks.lean](ConditionedStableLaws/Remarks.lean) — the remark import.
-- `TheoremA.lean` … `TheoremF.lean` — uniformly named theorem entry points.
-- Other modules in `ConditionedStableLaws/` — the underlying proofs and infrastructure.
-- [AuditMainTheorems.lean](AuditMainTheorems.lean) — the main-result axiom audit.
-- [AuditRemarks.lean](AuditRemarks.lean) — the nine-remark axiom audit, including the finite-count existence examples.
-- [coverage.json](coverage.json) — the checked manuscript-to-Lean inventory.
-
-The public layer reuses the existing proofs. Original declaration names are kept
-for compatibility; no proof was replaced by an assumption.
-
-## Scope
-
-All main results A–F and all nine remarks are proved, with the precise
-interpretations documented in [Remarks](docs/Development.md#remarks).
-The separate stationary Q-process ergodicity
-conclusion still uses one registered cited axiom, which A–F do not depend on.
-The remarks also use no cited axioms. The general compact-interpolation
-theorem remains partial. The five examples are outside the requested scope.
-
-The inventory contains 65 source items: 51 proved, 7 defined, 1 partial,
-1 proved modulo a cited axiom and 5 excluded. Additional public
-names do not count as additional manuscript results.
-
-For details, see [Development and proof coverage](docs/Development.md) and
-the [public API guide](docs/MainResults.md). The source labels and hashes in
-`coverage.json` are metadata identifying the external manuscript snapshot;
-the manuscript itself is not included. The checked local snapshot still has
-the older finite-count sentence; this release covers the revised wording
-“finite-n counts need not be independent”, as explained in the remark inventory.
+With Python 3 installed, `python3 scripts/check.py --require-remarks` runs the build, both audits,
+the project-wide axiom audit and the declaration checks. GitHub Actions runs this verification on
+pushes and pull requests.
